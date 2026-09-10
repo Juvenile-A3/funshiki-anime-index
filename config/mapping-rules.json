@@ -1,0 +1,66 @@
+{
+  "rules": [
+    { "subject_id": 493724, "query_index": 0, "patterns": ["淡岛百景"] },
+    { "subject_id": 535669, "query_index": 1, "patterns": ["冰之城墙"] },
+    { "subject_id": 567418, "query_index": 2, "patterns": ["灰原君"] },
+    { "subject_id": 409468, "query_index": 3, "patterns": ["左撇子艾伦"] },
+    { "subject_id": 623851, "query_index": 4, "patterns": ["日本三国"] },
+    { "subject_id": 590353, "query_index": 5, "patterns": ["婚姻剧毒"] },
+    { "subject_id": 513208, "query_index": 6, "patterns": ["雾尾后援会"] },
+    { "subject_id": 543360, "query_index": 7, "patterns": ["上伊那牡丹"] },
+    {
+      "subject_id": 165829,
+      "query_index": 8,
+      "patterns": ["时光机之在下坂本"]
+    },
+    { "subject_id": 118781, "query_index": 9, "patterns": ["时光机之甲铁城"] },
+    {
+      "subject_id": 133403,
+      "query_index": 10,
+      "patterns": ["时光机之百武装战记"]
+    },
+    {
+      "subject_id": 149959,
+      "query_index": 11,
+      "patterns": ["时光机之至高指令"]
+    },
+    {
+      "subject_id": 100858,
+      "query_index": 12,
+      "patterns": ["时光机之超时空要塞Δ"]
+    },
+    { "subject_id": 148361, "query_index": 13, "patterns": ["时光机之熊巫女"] },
+    {
+      "subject_id": 144357,
+      "query_index": 14,
+      "patterns": ["时光机之文豪野犬"]
+    },
+    { "subject_id": 148281, "query_index": 15, "patterns": ["时光机之羁绊者"] },
+    {
+      "subject_id": 142758,
+      "query_index": 16,
+      "patterns": ["时光机之线上队友"]
+    },
+    {
+      "subject_id": 141799,
+      "query_index": 17,
+      "patterns": ["时光机之飞翔的魔女"]
+    },
+    {
+      "subject_id": 168204,
+      "query_index": 18,
+      "patterns": ["时光机之宇宙巡警露露子"]
+    },
+    {
+      "subject_id": 155778,
+      "query_index": 19,
+      "patterns": ["时光机之双星阴阳师"]
+    },
+    {
+      "subject_id": 145908,
+      "query_index": 20,
+      "patterns": ["时光机之三者三叶"]
+    }
+  ],
+  "review_basis": "首批三期笔记与 Bangumi 搜索结果逐条文本核对；2016 回顾选择对应 TV 条目，至高指令选择 2016 TV 而非 2015 OAD；未实际听看视频。此规则仅用于首批种子数据，不自动批准未来采集。"
+}

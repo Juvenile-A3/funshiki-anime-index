@@ -1,0 +1,26 @@
+[
+  { "query": "淡岛百景", "aliases": ["淡岛"] },
+  { "query": "冰之城墙", "aliases": ["冰城"] },
+  { "query": "灰原君的青春二周目", "aliases": ["灰原君"] },
+  { "query": "左撇子艾伦", "aliases": ["艾伦"] },
+  { "query": "日本三国", "aliases": [] },
+  { "query": "婚姻剧毒", "aliases": [] },
+  { "query": "雾尾粉丝俱乐部", "aliases": ["雾尾后援会"] },
+  { "query": "上伊那牡丹", "aliases": ["上伊那牡丹"] },
+  { "query": "在下坂本", "aliases": ["在下坂本有何贵干"] },
+  { "query": "甲铁城的卡巴内利", "aliases": ["甲铁城"] },
+  { "query": "百武装战记", "aliases": [] },
+  { "query": "至高指令", "aliases": [] },
+  { "query": "超时空要塞Δ", "aliases": ["超时空要塞delta"] },
+  { "query": "熊巫女", "aliases": [] },
+  { "query": "文豪野犬", "aliases": [] },
+  { "query": "羁绊者", "aliases": [] },
+  {
+    "query": "线上游戏的老婆不可能是女生",
+    "aliases": ["线上队友不可能是女生"]
+  },
+  { "query": "飞翔的魔女", "aliases": [] },
+  { "query": "宇宙巡警露露子", "aliases": [] },
+  { "query": "双星之阴阳师", "aliases": ["双星阴阳师"] },
+  { "query": "三者三叶", "aliases": [] }
+]

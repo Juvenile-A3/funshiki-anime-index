@@ -1,0 +1,18 @@
+name: 修正动画或时点
+description: 报告错误的动画关联、时间点或失效链接
+title: "[纠错] "
+body:
+  - type: input
+    id: source
+    attributes:
+      label: 录播链接与时间点
+      placeholder: BV 号 / 第几 P / 分秒
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: 建议修正与依据
+      description: 请附 Bangumi 条目、原始笔记或实际观看依据；也可附工作台导出的补丁。
+    validations:
+      required: true

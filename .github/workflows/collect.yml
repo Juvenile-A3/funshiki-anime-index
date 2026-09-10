@@ -1,0 +1,41 @@
+name: Collect latest public notes (review required)
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "最新录播数（1 至 5；遇限流即停）"
+        required: true
+        default: "3"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+permissions:
+  contents: read
+concurrency:
+  group: collect-public-notes
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect candidate data
+        env:
+          LATEST_LIMIT: ${{ inputs.limit }}
+        run: python scripts/collect_latest.py --limit "$LATEST_LIMIT"
+      - name: Save review candidate (never publish automatically)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-note-candidate
+          path: |
+            data/latest/candidate.json
+            data/latest/candidate-partial.json
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Explain next step
+        if: always()
+        run: echo '本次采集仅产生候选文件，不修改已审核目录。请下载 artifact、审核动画映射，再提交 PR。B 站接口在 GitHub runner 上的可用性需以本次运行结果为准。' >> "$GITHUB_STEP_SUMMARY"
