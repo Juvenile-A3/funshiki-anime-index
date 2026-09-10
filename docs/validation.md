@@ -33,6 +33,12 @@
 
 ## GitHub 状态
 
-本地 Git 仓库已初始化。官方 GitHub CLI 便携版在项目内，仅作本机工具且被 .gitignore 排除；auth status 返回未登录。
+2026-09-10 已授权并发布至公开仓库 [Juvenile-A3/funshiki-anime-index](https://github.com/Juvenile-A3/funshiki-anime-index)。站点地址：[泛式杂谈索引](https://juvenile-a3.github.io/funshiki-anime-index/)。
 
-GitHub Pages 发布工作流与手动候选采集工作流已准备。远端仓库尚未创建，尚未触发 GitHub Actions，也尚未生成公网地址。GitHub runner 上的 B 站访问能力待首次运行验证。
+[首次部署运行](https://github.com/Juvenile-A3/funshiki-anime-index/actions/runs/34462261997) 的 build 与 deploy 均成功；GitHub runner 上 18 项测试及静态构建通过。
+
+公网 HTTP 核验：index.html、app.mjs、domain.mjs、style.css、favicon.svg、catalog.json、config.json 均返回 200。页面与静态资源逐字节匹配本地构建；两份 JSON 在 Git 换行标准化后逐字节一致，解析后内容完全相同。
+
+发布后浏览器自动化连接超时，因此本次公网验证为 HTTP 与文件内容核验；页面交互的浏览器实测记录见上节。
+
+手动候选采集工作流已上传，尚未触发；GitHub runner 上的 B 站访问能力仍待首次采集验证。网站已经使用本机成功采集并整理的三期公开笔记。
