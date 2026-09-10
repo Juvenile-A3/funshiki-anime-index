@@ -1,5 +1,7 @@
 # 泛式杂谈索引
 
+[访问网站](https://Juvenile-A3.github.io/funshiki-anime-index/) · [GitHub 仓库](https://github.com/Juvenile-A3/funshiki-anime-index)
+
 从动画出发，找到泛式谈及作品的录播和时点。非官方粉丝项目，动画数据来自 Bangumi，时间轴来自录播下的公开笔记。
 
 首版：21 部动画、3 期录播、57 个话题、25 个动画关联时点、96 个普通版/弹幕版跳转目标。录播日期为 2026-06-20、2026-06-27、2026-07-04，以录播组收藏夹当前最新三期为范围。
