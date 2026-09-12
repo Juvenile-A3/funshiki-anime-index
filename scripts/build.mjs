@@ -21,6 +21,7 @@ await copyFile(
   join(root, "dist/catalog.json"),
 );
 await copyFile(join(root, "config/site.json"), join(root, "dist/config.json"));
+await copyFile(join(root, "CNAME"), join(root, "dist/CNAME"));
 console.log(
   `Built static site: ${catalog.subjects.length} subjects, ${catalog.videos.length} videos, ${catalog.segments.length} timepoints.`,
 );
