@@ -1,6 +1,6 @@
 # 泛式杂谈索引
 
-[访问网站](https://Juvenile-A3.github.io/funshiki-anime-index/) · [GitHub 仓库](https://github.com/Juvenile-A3/funshiki-anime-index)
+[访问网站](https://funshiki-anime-index.cn/) · [GitHub 仓库](https://github.com/Juvenile-A3/funshiki-anime-index)
 
 从动画出发，找到泛式谈及作品的录播和时点。非官方粉丝项目，动画数据来自 Bangumi，时间轴来自录播下的公开笔记。
 
@@ -22,7 +22,7 @@ npm run build
 1. 创建仓库 `funshiki-anime-index`。如使用 GitHub Free 的 Pages，选择公开仓库；请先检查要公开的文件。
 2. 在 `config/site.json` 的 repository 填入 `账号/仓库名`。
 3. 推送 main 分支。仓库 Settings → Pages → Build and deployment → Source 选择 GitHub Actions。
-4. 运行 `Test and deploy Pages` 工作流。通过检查后仅上传 dist 目录，站点地址通常为 `https://账号.github.io/funshiki-anime-index/`。
+4. 运行 `Test and deploy Pages` 工作流。通过检查后仅上传 dist 目录，默认地址为 `https://账号.github.io/funshiki-anime-index/`；本仓库已通过根目录 `CNAME` 配置自定义域名 `https://funshiki-anime-index.cn/`，构建时会将它复制进 Pages artifact。
 
 也可在已登录 GitHub CLI 的环境执行：
 
