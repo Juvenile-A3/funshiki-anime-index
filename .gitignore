@@ -8,6 +8,7 @@ __pycache__/
 !.env.example
 data/raw/
 data/latest/
+data/all-timeline-notes/
 data/*-contents*.json
 data/evidence-manifest.json
 data/timepoints.json
@@ -34,3 +35,4 @@ scripts/bangumi_probe.py
 scripts/analyze.py
 scripts/report.py
 .git-sandbox-initial/
+.playwright-cli/

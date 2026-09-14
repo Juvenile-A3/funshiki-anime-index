@@ -26,7 +26,7 @@ def main():
         result=load(f"data/latest/bangumi/{rule['query_index']}.json")
         s=next(s for s in result['response']['data'] if s['id']==rule['subject_id'])
         image=(s.get('images') or {}).get('large') or (s.get('images') or {}).get('common') or ''
-        subjects.append({'id':s['id'],'name':s.get('name_cn') or s['name'],'original_name':s['name'],'aliases':list(dict.fromkeys([result['seed']['query'],*result['seed']['aliases']])),'air_date':s.get('date'),'platform':s.get('platform') or 'TV','image':image.replace('http://','https://'),'summary':(s.get('summary') or '')[:400],'color':['#b9b4d9','#bdd4cb','#e0c5bb','#adc6d3','#d5c7df'][i%5]})
+        subjects.append({'id':s['id'],'type':s.get('type',2),'name':s.get('name_cn') or s['name'],'original_name':s['name'],'aliases':list(dict.fromkeys([result['seed']['query'],*result['seed']['aliases']])),'air_date':s.get('date'),'platform':s.get('platform') or '','image':image.replace('http://','https://'),'summary':(s.get('summary') or '')[:400],'color':['#b9b4d9','#bdd4cb','#e0c5bb','#adc6d3','#d5c7df'][i%5]})
     videos=[];segments=[]
     for v in source['videos']:
         match=re.search(r'(20\d{2})[.\-/](\d{1,2})[.\-/](\d{1,2})',v['description'])

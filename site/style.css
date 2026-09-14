@@ -901,12 +901,13 @@ input[type="checkbox"] {
   grid-template-columns: 1.4fr 1fr;
   gap: 12px;
 }
-.review-card > button {
+.review-card button {
   font-size: 11px;
   color: var(--accent);
   background: var(--pale);
   border: 0;
 }
+.review-card button:disabled { cursor: wait; opacity: .6; }
 .status {
   color: var(--accent);
   font-size: 12px;
@@ -1436,4 +1437,20 @@ button:disabled {
 }
 .review-card > button + button {
   margin-left: 8px;
+}
+.work-picker { border: 1px solid var(--line); border-radius: 10px; margin: 20px 0; padding: 16px; min-width: 0; }
+.work-picker:disabled { opacity: .5; }
+.bangumi-search { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.bangumi-search label:first-child { flex: 1 1 220px; }
+.bangumi-search label { margin: 0; }
+.bangumi-result { display: flex; gap: 12px; align-items: center; border-top: 1px solid var(--line); padding: 12px 0; }
+.bangumi-result > div { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.bangumi-result small { display: block; color: var(--muted); margin-top: 4px; }
+.bangumi-result a, .bangumi-result button { flex-shrink: 0; }
+.chosen-subjects { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.search-status { font-size: 13px; }
+.filters { flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .bangumi-result { flex-wrap: wrap; }
+  .bangumi-result > div { flex-basis: 100%; }
 }

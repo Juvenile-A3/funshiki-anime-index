@@ -11,7 +11,7 @@ import {
   validateCatalog,
 } from "../site/domain.mjs";
 const data = JSON.parse(
-  await readFile(new URL("../data/catalog.json", import.meta.url), "utf8"),
+  await readFile(new URL("./fixtures/seed-catalog.json", import.meta.url), "utf8"),
 );
 test("real seed catalog: all subjects and targets resolve", () =>
   assert.equal(validateCatalog(data), true));

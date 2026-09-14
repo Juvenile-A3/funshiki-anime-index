@@ -1,0 +1,1948 @@
+{
+  "schema_version": 1,
+  "version": "seed-2026-07-05-v1",
+  "fetched_at": "2026-09-10T09:04:53.552487+00:00",
+  "coverage": {
+    "from": "2026-06-20",
+    "to": "2026-07-04",
+    "folder_id": 3911389796
+  },
+  "subjects": [
+    {
+      "id": 493724,
+      "name": "淡岛百景",
+      "original_name": "淡島百景",
+      "aliases": [
+        "淡岛百景",
+        "淡岛"
+      ],
+      "air_date": "2026-04-09",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/bd/33/493724_V6lXx.jpg",
+      "summary": "淡岛歌剧学校里，梦想着站上舞台的少女们自全国各地齐聚而来。憧憬着歌舞剧明星而入学的新生・若菜。背负着挚友的思念努力学习的舍长・绢枝。散发出压倒性存在感的，美丽特待生・绘美。憧憬她、嫉妒她，并不断渴求她目光的桂子与其家人――。她们无可替代的日子，随着人物视角的转换，在彼此交错之中缓缓连结起来。活在当下的少女们的，清新而鲜烈的青春涂鸦。\r\n\r\n\r\n[简介原文]\r\n淡島（あわじま）歌劇学校には、舞台に立つことを夢みる少女たちが全国から集まってくる。\r\nミュージカルスターに憧れて入学した、新入生の若菜。\r\n親友の思いを背負って学び続ける、寮長の絹枝。\r\n圧倒的な存在感を放つ、美しき特待生の絵美。\r\n彼女に憧れ、妬み、視線を求め続けた桂子とその家族――。\r\n彼女たちのかけがえのない日々が、人物の視点を変え、交錯しながらゆるやかに繋がっていく。\r\n今を生きる少女たちの、瑞々しく鮮烈な青春グラフィティ。",
+      "color": "#b9b4d9"
+    },
+    {
+      "id": 535669,
+      "name": "冰之城墙",
+      "original_name": "氷の城壁",
+      "aliases": [
+        "冰之城墙",
+        "冰城"
+      ],
+      "air_date": "2026-04-02",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/93/8f/535669_4zoHG.jpg",
+      "summary": "不擅长与人交往，在自己与别人之间筑墙的冰川小雪。\r\n除了青梅竹马的安昙美姬外，她从不与他人交往，只是静静地度过每一天。\r\n然而某天，不知为何主动靠近的男生·雨宫凑却闯入她的视野——？\r\n孤僻的女生·小雪、学校的万人迷·美姬、缺乏边界感的男生·凑、温柔体贴的篮球部员·阳太……\r\n笨拙且焦躁，却依然惹人恋爱。\r\n青春错位交织的群像剧，在此刻拉开帷幕。",
+      "color": "#bdd4cb"
+    },
+    {
+      "id": 567418,
+      "name": "灰原同学重返过去，开启所向无敌的第二轮青春游戏",
+      "original_name": "灰原くんの強くて青春ニューゲーム",
+      "aliases": [
+        "灰原君的青春二周目",
+        "灰原君"
+      ],
+      "air_date": "2026-04-02",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/d5/a9/567418_LTStp.jpg",
+      "summary": "2度目の青春をリアルにやりなおす、強くてニューゲーム学園ラブコメ！\r\n「――もし叶うなら、\r\nもう一度あの青春をやりなおす機会が欲しい」\r\n\r\n就職を目前に控えた青年・灰原夏希。\r\nかつて高校デビューに失敗して以来、\r\n灰色の青春時代を過ごしてきた夏希は、\r\nある日、突然大学4年生→高校入学直前にタイムリープしていた！？\r\n\r\n後悔しかなかった高校生活をやりなおす機会を得た夏希は、\r\n灰色の青春を虹色に書き換える“虹色青春計画”をスタート！\r\n過去の経験を活かして、クラスカースト最上位な美男美女のグループに加入したり、\r\n片思いをしていた美少女と急接近する夏希。\r\nだけど、憧れた虹色の青春は楽しいことばかりではなく……。\r\n\r\n果たして夏希は、憧れの青春をやりなおせるのか――！？",
+      "color": "#e0c5bb"
+    },
+    {
+      "id": 409468,
+      "name": "左撇子艾伦",
+      "original_name": "左ききのエレン",
+      "aliases": [
+        "左撇子艾伦",
+        "艾伦"
+      ],
+      "air_date": "2026-04-07",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/30/6c/409468_xxw82.jpg",
+      "summary": "追逐梦想却苦于才能极限的凡人「光一」，与因天赋过人而孤独痛苦的天才「艾伦」。在人生的十字路口短暂擦身而过的两人，将成为彼此一生难忘、无可取代的存在。选择成为设计师的光一，等待他的是广告界身经百战的职场老手们；投身世界艺术舞台的艾伦，也将面对怪物般的艺术家们。在充满未曾有才华与野心的创作战场中，两人不断挣扎、跌倒，却依旧选择挑战。一段刺痛心灵又挥之不去的鲜烈青春物语，正式揭开序幕！\r\n\r\n\r\n[简介原文]\r\n高校生活も半分が過ぎ、誰もが本格的に進路を考えはじめる頃。デザイナーになるため美大を目指す朝倉光一は、ある日、美術館の壁に殴り描きされたグラフィティに衝撃を受ける。描いたのは、ある出来事をきっかけに才能を封じ込めてきた、左ききの女子高生・山岸エレンだった。\r\nいつしか二人は「描く」ことを通じてお互いを認めあい、光一はデザイナー、エレンは画家への道を歩み始めるが――。",
+      "color": "#adc6d3"
+    },
+    {
+      "id": 623851,
+      "name": "日本三国",
+      "original_name": "日本三國",
+      "aliases": [
+        "日本三国"
+      ],
+      "air_date": "2026-04-05",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/e7/cf/623851_sSVfH.jpg",
+      "summary": "「我要重新统一这个国家」\r\n在近未来的日本，核战争、天灾、暴政等因素引发了革命，文明随之崩坏，国家一分为三，进入了相互争夺霸权的三国时代。\r\n三角青辉原本只是个不起眼地方官。后来，他以「重新统一日本」为目标，凭借自己的博学多识和聪明才辩一路向上爬升。\r\n这位被后世誉为奇才军师的男人，他的传说就此拉开帷幕——\r\n\r\n\r\n\r\n[简介原文]\r\n「この国を、再統一する」\r\n核大戦、天災、悪政などから革命が起こり、文明が崩壊した近未来の日本。\r\n国は三つに分かれ、覇権を争う三国時代に突入した。\r\nしがない地方役人だった三角青輝は「日本再統一」を目指し、豊富な知識と長けた弁舌でのし上がっていく。\r\n後に奇才軍師と称される男の伝説が、幕を開ける――！",
+      "color": "#d5c7df"
+    },
+    {
+      "id": 590353,
+      "name": "婚姻剧毒",
+      "original_name": "マリッジトキシン",
+      "aliases": [
+        "婚姻剧毒"
+      ],
+      "air_date": "2026-04-07",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/ed/dc/590353_M0laM.jpg",
+      "summary": "数百年来有一群人持续磨练着杀人技巧，人称「高手」。\r\n青年下吕光继承了在这群人当中，拥有最强力量与权力的五大名门之一，「用毒人」的血脉。\r\n他投身于黑社会工作，过着与女性完全绝缘的生活。对他而言，「结婚」原本是件极其遥远的事情。\r\n然而，为了不让「用毒人」的血脉断绝，下吕家的现任当家告知他的妹妹，将强迫她生下继承人。\r\n就在这时，下吕遇见了他的任务目标，手法高超的婚姻骗子──城崎芽衣。\r\n为了解决继承人问题并保护妹妹，下吕想到由自己来结婚，便当场向城崎提出请求，委托对方协助自己顺利结婚。\r\n「──我第一次看到这种提案（求婚）方式。」\r\n于是，在手法高超的婚姻骗子──城崎担任顾问之下，一流杀手下吕开始挑战人生首次的超困难任务──「相亲」……！？\r\n目标是最棒的婚姻……\r\n由杀手与婚姻骗子这对最强拍档挺身挑战，世界上最艰辛的相亲战斗动作片，正式揭开序幕！！\r\n\r\n\r\n[简介原文]\r\n数百年にわ",
+      "color": "#b9b4d9"
+    },
+    {
+      "id": 513208,
+      "name": "雾尾粉丝后援会",
+      "original_name": "霧尾ファンクラブ",
+      "aliases": [
+        "雾尾粉丝俱乐部",
+        "雾尾后援会"
+      ],
+      "air_date": "2026-04-02",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/05/9a/513208_UFZ41.jpg",
+      "summary": "如果你喜欢的人有震耳欲聋的「招牌特征」，你会怎么办？对蓝美和波而言，这正是她们思考的「深沉哲学问题」。这两位既是朋友、又是恋爱竞争者的女孩，为了吸引那位对她们浑然不觉的同班同学「雾尾」，不惜使出各种离谱手段：夜里做着神秘仪式，只为让他出现在梦中；列出一份细致到不可思议的「喜欢他的理由清单」。然而，在这场明明好笑又有点荒唐的单恋攻防战中，她们的友情，真的能在追求雾尾的战场上安然无恙吗？\r\n\r\n\r\n\r\n[简介原文]\r\n拝啓 霧尾くん、あなたが好きです。\r\nでも、知りませんでした。\r\n人を好きになるのが、こんなにつらいなんて。\r\n大好きだよ、霧尾くん。\r\n霧尾くんとハンバーガー食べたい。\r\n霧尾くんと相合傘したい。\r\n霧尾くんとお皿割りまくりたい。\r\n霧尾くんと身体中のほくろ探しの旅に出たい。\r\n霧尾くんと出会った日を国民の祝日にしたい。\r\n藍美と波、大好きな人の話をする、\r\n２人だけの大切な時",
+      "color": "#bdd4cb"
+    },
+    {
+      "id": 543360,
+      "name": "上伊那牡丹，酒醉身姿似百合花般",
+      "original_name": "上伊那ぼたん、酔へる姿は百合の花",
+      "aliases": [
+        "上伊那牡丹"
+      ],
+      "air_date": "2026-04-10",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/30/1b/543360_Ru78k.jpg",
+      "summary": "上伊那牡丹在升上大学后住进了学生宿舍。\r\n当她与宿舍成员一同前往秩父参加芝樱祭时，在长椅上看见了独自喝着酒的舍监・砺波伊吹。\r\n伊吹那副把Highball喝得格外美味的模样吸引了牡丹，让她忍不住心想：「我也想喝喝看。」于是，她人生第一次尝试了喝酒。\r\n在体会到酒的美味后，牡丹开始和宿舍的伙伴们一起享受烧酒、葡萄酒、威士忌等各式酒类，感情也逐渐加深。\r\n另一方面，因过去的经历而执着于「一个人喝酒」的伊吹，在与总是开心、看起来喝得很满足的牡丹相处的过程中，也逐渐开始想和她一起喝酒……\r\n\r\n\r\n\r\n[简介原文]\r\n大学進学を機に学生寮に入寮した上伊那ぼたん。\r\n寮のメンバーと訪れた秩父・芝桜まつりのベンチでひとり、お酒を飲む寮長・砺波いぶきを見つける。\r\nぼたんは、ハイボールをあまりに美味しそうに飲むいぶきに惹かれ「私もそれ、飲んでみたいな」と人生で初めてのお酒を口にすることに。\r\nそこでお酒",
+      "color": "#e0c5bb"
+    },
+    {
+      "id": 165829,
+      "name": "在下坂本，有何贵干？",
+      "original_name": "坂本ですが？",
+      "aliases": [
+        "在下坂本",
+        "在下坂本有何贵干"
+      ],
+      "air_date": "2016-04-07",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/7c/01/165829_cwSZV.jpg",
+      "summary": "酷、很酷、最最酷的高中生登场了！\r\n本故事是某个很酷，不，是最酷的高中生坂本的校园生活的集锦。\r\n刚入学不久，就出现一位被全班，不是被全校瞩目的学生。\r\n他名为坂本。\r\n一旦与他扯上关系，普通的反复横跳就会升级为秘技“Repetition Side Step”\r\n他把上级生强加于他的“跑腿活”华丽升格为“尽心尽责的服务”。\r\n这样炫酷的他，一举手一投足都摄人心魄。",
+      "color": "#adc6d3"
+    },
+    {
+      "id": 118781,
+      "name": "甲铁城的卡巴内利",
+      "original_name": "甲鉄城のカバネリ",
+      "aliases": [
+        "甲铁城的卡巴内利",
+        "甲铁城"
+      ],
+      "air_date": "2016-04-07",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/4e/0a/118781_ZHz9k.jpg",
+      "summary": "　　全世界被产业革命的波澜推动，自近世变迁至近代之时，不死的怪物突然出现。被钢铁的皮膜包覆，只要心脏不被破坏就不会消灭，被它啃咬的人似乎也会在死过一次之后复生，并开始袭击人类。之后被称为卡巴内的这些怪物爆发性地增殖，并覆盖了全世界。\r\n　　远东岛国日本的人们，为了对抗卡巴内的威胁而在各地建造名为“驿”的城寨，并困守在其中，想方设法残存下去。能够在驿之间来往的只有装甲蒸汽机车（通称骏城），驿之间通过各自生产物的融通，总算是保证了生活。\r\n　　住在以炼铁和蒸汽机的生产为业的显金驿的蒸汽锻冶少年，生驹。他为了打倒卡巴内，开发出独自的武器“贯筒”，同时期盼着有朝一日能够发挥出自己的力量。\r\n　　某天，穿越前线的骏城之一甲铁城来到了显金驿。为了车辆的清扫整备而被召唤的生驹，目击到了从义务性的卡巴内检阅中被免除的不可思议少女。\r\n　　当晚，生驹与自称为无名的那位白天的少女再会，此时骏城突然暴走并突入了",
+      "color": "#d5c7df"
+    },
+    {
+      "id": 133403,
+      "name": "百武装战记",
+      "original_name": "ハンドレッド",
+      "aliases": [
+        "百武装战记"
+      ],
+      "air_date": "2016-04-04",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/a8/a7/133403_5F8eu.jpg",
+      "summary": "“HUNDRED”——那是能对抗袭击地球的神秘生物“蛮族”的唯一武器。主角如月隼人为了成为能够驾驭HUNDRED的武艺者，进入海上学园都市舰“Little Garden”就读。然而——对于似乎很了解自己的室友艾米尔·克劳福德，隼人产生了某种怀念的异样感受。不仅如此，才一入学，学园最强的武艺者“女王”克蕾亚·哈维便向他提出决斗要求……！？",
+      "color": "#b9b4d9"
+    },
+    {
+      "id": 149959,
+      "name": "至高指令",
+      "original_name": "ビッグオーダー",
+      "aliases": [
+        "至高指令"
+      ],
+      "air_date": "2016-04-15",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/1c/0f/149959_2dFLO.jpg",
+      "summary": "主人公星宫映司的学校转来了一位名叫红铃的转学生，是个相貌美丽的美人。映司想着要和她交个朋友，而在他放学回家的路上出现在背后的，竟然就是转学生红铃……\r\n这是由世界的灭亡展开的故事，是星宫映司率领着太宰府政厅十人众，以侵略世界为目标的战斗故事。",
+      "color": "#bdd4cb"
+    },
+    {
+      "id": 100858,
+      "name": "超时空要塞Δ",
+      "original_name": "マクロスΔ",
+      "aliases": [
+        "超时空要塞Δ",
+        "超时空要塞delta"
+      ],
+      "air_date": "2016-04-03",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/31/79/100858_95wYv.jpg",
+      "summary": "西历2067年，在人类会失去自我并凶暴化的怪病——\"狂暴化症候群\"蔓延的银河边境之地。\r\n而作为对抗手段而结成的战术音乐组合「WALKÜRE」为了以歌声平定\"狂暴化症候群\"——她们在星球间奔波、展开着现场演唱会活动。\r\n另一方，同时，被称为「空中骑士团」的「风之王国」所属瓦尔基里部队开始了行动——。\r\n围绕着史前文化遗产之谜，超越星系的热烈团队合作与恋爱故事拉开了幕布。",
+      "color": "#e0c5bb"
+    },
+    {
+      "id": 148361,
+      "name": "熊巫女",
+      "original_name": "くまみこ",
+      "aliases": [
+        "熊巫女"
+      ],
+      "air_date": "2016-04-03",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/4f/c8/148361_nEFsC.jpg",
+      "summary": "东北地方的某处深山，初中生小町在供奉熊的神社担当巫女的工作。某天，小町对身为监护人（人？）的熊·夏说“想要去都市的学校”。爱操心的夏，给干劲十足却缺乏毅力、不谙世事的小町准备了在都市生活所必要的试炼，但……。",
+      "color": "#adc6d3"
+    },
+    {
+      "id": 144357,
+      "name": "文豪野犬",
+      "original_name": "文豪ストレイドッグス",
+      "aliases": [
+        "文豪野犬"
+      ],
+      "air_date": "2016-04-06",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/01/4b/144357_Lg83V.jpg",
+      "summary": "被赶出孤儿院，濒临饿死的青年·中岛敦所遇到的奇怪男人们——。\r\n光天化日之下忙于跳水自杀，有着自杀嗜好的男人·太宰治。\r\n神经质地翻看着笔记本的眼镜男·国木田独步。\r\n他们，是传闻中将那些军队和警察无法介入的事件解决的“武装侦探社”的职员。\r\n敦在鬼使神差之下被他们要求一同前去惩治扰乱街市的“食人虎”……。\r\n架空的都市·横滨。登场者是，拥有文豪之名的人们。与这些名字相称的异形之力，迸发出火花。\r\n千奇百怪的文豪异能力战斗，就此开幕！ ",
+      "color": "#d5c7df"
+    },
+    {
+      "id": 148281,
+      "name": "羁绊者",
+      "original_name": "キズナイーバー",
+      "aliases": [
+        "羁绊者"
+      ],
+      "air_date": "2016-04-09",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/85/c3/148281_8czuA.jpg",
+      "summary": "以伤痛相连的羁绊物语——。\r\n少年少女们分享“疼痛”的青春群像剧，现在开始！！\r\n舞台是在废弃的土地上建造的城镇·洲笼市。住在这座曾以未来型都市而繁荣的城镇的高中生·阿形胜平，不知为何拥有着感觉不到疼痛的不可思议身体。在暑假近在眼前的某天，胜平在谜之少女·园崎法子的引领下，被选为共享疼痛的同伴“羁绊者”之一。以及，同样以“羁绊者”身份被联系起来的同班同学们。但，他们原本各自属于从未交流过的集团。园崎说“这是，将充满纷争的世界导向和平的实验。”与这番话语同时，众多的试炼降临到他们的身上。\r\n背负着各自的伤痛，少年少女们的夏日物语由此开始！",
+      "color": "#b9b4d9"
+    },
+    {
+      "id": 142758,
+      "name": "线上游戏的老婆不可能是女生？",
+      "original_name": "ネトゲの嫁は女の子じゃないと思った?",
+      "aliases": [
+        "线上游戏的老婆不可能是女生",
+        "线上队友不可能是女生"
+      ],
+      "air_date": "2016-04-07",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/64/bd/142758_4WO7N.jpg",
+      "summary": "就读于县立前崎高中、爱好网游的男高中生西村英骑，在MMORPG《传奇时代》中向女性角色告白，但却得知对方其实是“网络人妖（以男性身份假扮女性的人）”而大受打击。他由于这一心理阴影而相信“现实与游戏完全不同”并对其做出区别，不过现在仍然和自己所属的公会“Array Cat”的成员们愉快地享受着游戏。但，他被伙伴中的一人“亚子”告白，并演变成要和她结婚的状况。不止如此，英骑还被公会会长告知第一次“线下会”将要开办了。",
+      "color": "#bdd4cb"
+    },
+    {
+      "id": 141799,
+      "name": "飞翔的魔女",
+      "original_name": "ふらいんぐうぃっち",
+      "aliases": [
+        "飞翔的魔女"
+      ],
+      "air_date": "2016-04-09",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/a5/25/141799_81ZfO.jpg",
+      "summary": "在青森开始做魔女！\r\n青森——在这片被丰饶的大自然围绕的土地上，有时会发生些不可思议的事情。\r\n木幡真琴15岁，魔女。和黑猫千户一同从横滨过来的她，开始在青森的亲戚家里修行。虽然现在还只是仅仅能飞上天空这种程度，但她仍然和表兄妹圭和千夏一起度过着充实的生活。",
+      "color": "#e0c5bb"
+    },
+    {
+      "id": 168204,
+      "name": "宇宙巡警露露子",
+      "original_name": "宇宙パトロールルル子",
+      "aliases": [
+        "宇宙巡警露露子"
+      ],
+      "air_date": "2016-04-01",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/eb/e9/168204_Mymk9.jpg",
+      "summary": "在宇宙人与地球人共同生活的银河指定宇宙移民特区OGIKUBO和父亲两人生活，随处可见的“超普通”现役女初中生露露子。在过着普通生活的露露子面前突然出现的神秘转学生AΩ·诺瓦。这次“相遇”让露露子的命运卷起波澜。",
+      "color": "#adc6d3"
+    },
+    {
+      "id": 155778,
+      "name": "双星之阴阳师",
+      "original_name": "双星の陰陽師",
+      "aliases": [
+        "双星之阴阳师",
+        "双星阴阳师"
+      ],
+      "air_date": "2016-04-06",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/c7/e0/155778_SgSmS.jpg",
+      "summary": "存在于现代另一侧的祸野，是异形的怪物“污秽”栖息之地。将其祓除并保护人类的，则是阴阳师。拥有才能却拒绝成为阴阳师的焰魔堂辘轳，在神的谕示下获得了被授予阴阳师夫妇的“双星”之称号。同样成为双星的化野红绪，是以祓除全部污秽为理想的少女。在身为双星而被卷入战斗的同时，将一心希望变强而持续战斗的红绪一直看在眼里的辘轳，也开始正视自己从“雏月之悲剧”以来不断逃离战斗的那份软弱。在红绪的刺激下，辘轳直面自己一直逃避的过去，并决定再次以阴阳师的身份战斗，两人共同以“双星之阴阳师”的身份，向强大的污秽发起挑战！",
+      "color": "#d5c7df"
+    },
+    {
+      "id": 145908,
+      "name": "三者三叶",
+      "original_name": "三者三葉",
+      "aliases": [
+        "三者三叶"
+      ],
+      "air_date": "2016-04-10",
+      "platform": "TV",
+      "image": "https://lain.bgm.tv/pic/cover/l/5e/96/145908_S1wd5.jpg",
+      "summary": "大胃娘·小田切双叶、原大小姐·西川叶子、腹黑委员长·叶山照，这样的好朋友三人组加上同班同学的万年老二不开心少女·西山芹奈、由于热心而爱唠叨的近藤亚纱子、最爱阴谋的叶子大人原女仆·薗部篠……，独具个性的人们我行我素地活跃着！",
+      "color": "#b9b4d9"
+    }
+  ],
+  "videos": [
+    {
+      "bvid": "BV1v6MN6fE3f",
+      "title": "【泛式/录播】喜欢看这种残血带点虚弱的人类形象",
+      "live_date": "2026-07-04",
+      "published_date": "2026-07-05",
+      "pages": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "title": "20260704_200714",
+          "duration": 11397
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "title": "20260704_200714-弹幕版",
+          "duration": 11397
+        }
+      ]
+    },
+    {
+      "bvid": "BV1tUTK6JEKi",
+      "title": "【泛式/录播】别当兄弟了",
+      "live_date": "2026-06-27",
+      "published_date": "2026-06-29",
+      "pages": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "title": "628",
+          "duration": 15230
+        }
+      ]
+    },
+    {
+      "bvid": "BV1gajx6NERw",
+      "title": "【泛式/录播】回忆2016年4月，真拿你没办法~",
+      "live_date": "2026-06-20",
+      "published_date": "2026-06-21",
+      "pages": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "title": "20260620_203411",
+          "duration": 18570
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "title": "20260620_203411-弹幕版",
+          "duration": 18570
+        }
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-595",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "严肃燃尽皇帝的新视频",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 595,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 595,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-1100",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "省电模式查阅七月新番列表",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 1100,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 1100,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-1405",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "淡岛百景经典认人环节",
+      "subject_ids": [
+        493724
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 1405,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 1405,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-1770",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "做视频老鼻子爷爷再起不能",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 1770,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 1770,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-2520",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "冰之城墙十月再续前缘",
+      "subject_ids": [
+        535669
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 2520,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 2520,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-4270",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "灰原君百岁删一休尼组乐队",
+      "subject_ids": [
+        567418
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 4270,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 4270,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-4890",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "实教正义的二打一雷切",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 4890,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 4890,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-5440",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "杖剑无能妻子给给大鸟转转",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 5440,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 5440,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-6000",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "梦限大已到账友情宣传",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 6000,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 6000,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-8470",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "尼古喵喵烟头耄耋再抽一口",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 8470,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 8470,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-8785",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "画完这个再死对泛特攻",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 8785,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 8785,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-8905",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "飙马野郎pv晋升高贵原作泛",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 8905,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 8905,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-9600",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "下播看左撇子艾伦黏住",
+      "subject_ids": [
+        409468
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 9600,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 9600,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1v6MN6fE3f-51170539-39658852205-10920",
+      "bvid": "BV1v6MN6fE3f",
+      "text": "投票环节小众宝藏只剩小众",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 51170539,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=51170539&pagefrom=ugcvideo",
+        "published": "2026-07-05 11:32"
+      },
+      "targets": [
+        {
+          "cid": 39658852205,
+          "p": 1,
+          "seconds": 10920,
+          "variant": "normal"
+        },
+        {
+          "cid": 39658852332,
+          "p": 2,
+          "seconds": 10920,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-475",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "泛人崛起全责，拉不拉多简史",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 475,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-1330",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "铁拳来教育，专业治霸凌",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 1330,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-1820",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "一转阿妮美，幽灵音乐会",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 1820,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-2615",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "新邦邦求帮帮，饭团严肃预约",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 2615,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-2700",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "雾尾后援会，绝望拉拉推",
+      "subject_ids": [
+        513208
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 2700,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-4110",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "上伊那牡丹，生产系作画",
+      "subject_ids": [
+        543360
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 4110,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-4720",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "转生勇者肋骨，敏感大叔泪目",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 4720,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-5300",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "冰之城墙美味，红茶王朝",
+      "subject_ids": [
+        535669
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 5300,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-6955",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "看海贼王东海篇重置版pv",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 6955,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-7200",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "相反的你和我第二季pv甜甜甜",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 7200,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-7530",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "只狼永不言败动画电影pv",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 7530,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-7760",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "杖剑无能冰鸟vs发狂雷牛",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 7760,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-9190",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "日本三国挥泪斩孔明往日种种",
+      "subject_ids": [
+        623851
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 9190,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-11210",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "婚姻剧毒一击必杀但不死",
+      "subject_ids": [
+        590353
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 11210,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-12230",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "盘点四月完结吐槽素材库",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 12230,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-12690",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "侦探又死，主播不忘男高初心",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 12690,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-13290",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "左撇子艾伦，泛团是外人",
+      "subject_ids": [
+        409468
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 13290,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1tUTK6JEKi-50976006-39485899131-14590",
+      "bvid": "BV1tUTK6JEKi",
+      "text": "投票环节，黏稠友情变质",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50976006,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50976006&pagefrom=ugcvideo",
+        "published": "2026-06-29 02:47"
+      },
+      "targets": [
+        {
+          "cid": 39485899131,
+          "p": 1,
+          "seconds": 14590,
+          "variant": "normal"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-325",
+      "bvid": "BV1gajx6NERw",
+      "text": "搜索老资历好主播截图",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 325,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 325,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-1310",
+      "bvid": "BV1gajx6NERw",
+      "text": "遍历四月老番目录解析",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 1310,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 1310,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-2140",
+      "bvid": "BV1gajx6NERw",
+      "text": "实教乱武切她中路",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 2140,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 2140,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-3920",
+      "bvid": "BV1gajx6NERw",
+      "text": "班二刻意家庭伦理",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 3920,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 3920,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-5015",
+      "bvid": "BV1gajx6NERw",
+      "text": "从零爱昴十年",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 5015,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 5015,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-7150",
+      "bvid": "BV1gajx6NERw",
+      "text": "冰之城墙狂喜",
+      "subject_ids": [
+        535669
+      ],
+      "kind": "discussion",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 7150,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 7150,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-9085",
+      "bvid": "BV1gajx6NERw",
+      "text": "看电锯人刺客篇pv",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 9085,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 9085,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-9315",
+      "bvid": "BV1gajx6NERw",
+      "text": "咒术回战第四季pv",
+      "subject_ids": [],
+      "kind": "pv",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 9315,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 9315,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-9435",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之在下坂本有何贵干",
+      "subject_ids": [
+        165829
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 9435,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 9435,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-11770",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之甲铁城的卡巴内利",
+      "subject_ids": [
+        118781
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 11770,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 11770,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-12755",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之百武装战记",
+      "subject_ids": [
+        133403
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 12755,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 12755,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-12820",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之至高指令",
+      "subject_ids": [
+        149959
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 12820,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 12820,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-13080",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之超时空要塞Δ",
+      "subject_ids": [
+        100858
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 13080,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 13080,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-13485",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之熊巫女",
+      "subject_ids": [
+        148361
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 13485,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 13485,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-14950",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之文豪野犬",
+      "subject_ids": [
+        144357
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 14950,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 14950,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15060",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之羁绊者",
+      "subject_ids": [
+        148281
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15060,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15060,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15135",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之线上队友不可能是女生",
+      "subject_ids": [
+        142758
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15135,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15135,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15290",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之飞翔的魔女",
+      "subject_ids": [
+        141799
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15290,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15290,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15475",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之宇宙巡警露露子",
+      "subject_ids": [
+        168204
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15475,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15475,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15500",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之双星阴阳师",
+      "subject_ids": [
+        155778
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15500,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15500,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15550",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之三者三叶",
+      "subject_ids": [
+        145908
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15550,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15550,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-15600",
+      "bvid": "BV1gajx6NERw",
+      "text": "时光机之Re:从零开始异世界生活",
+      "subject_ids": [],
+      "kind": "watch",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 15600,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 15600,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-16470",
+      "bvid": "BV1gajx6NERw",
+      "text": "纯爱阿泛回顾mad，真情流露",
+      "subject_ids": [],
+      "kind": "watch",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 16470,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 16470,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-17135",
+      "bvid": "BV1gajx6NERw",
+      "text": "下播看左撇子艾伦",
+      "subject_ids": [
+        409468
+      ],
+      "kind": "watch",
+      "review": "text-reviewed",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 17135,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 17135,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    },
+    {
+      "id": "BV1gajx6NERw-50750880-39280181566-18435",
+      "bvid": "BV1gajx6NERw",
+      "text": "早点结束投票环节",
+      "subject_ids": [],
+      "kind": "general",
+      "review": "pending",
+      "source": {
+        "cvid": 50750880,
+        "author": "逆命者之矛",
+        "url": "https://www.bilibili.com/h5/note-app/view?cvid=50750880&pagefrom=ugcvideo",
+        "published": "2026-06-21 17:05"
+      },
+      "targets": [
+        {
+          "cid": 39280181566,
+          "p": 1,
+          "seconds": 18435,
+          "variant": "normal"
+        },
+        {
+          "cid": 39282476444,
+          "p": 2,
+          "seconds": 18435,
+          "variant": "danmaku"
+        }
+      ],
+      "playback_verified": false
+    }
+  ]
+}

@@ -32,6 +32,23 @@ class PipelineTests(unittest.TestCase):
         result=apply_patch(catalog,patch);self.assertEqual(catalog['segments'][0]['subject_ids'],[]);self.assertEqual(result['segments'][0]['subject_ids'],[1]);self.assertNotEqual(result['version'],'v1')
         patch['catalog_version']='old'
         with self.assertRaises(ValueError):apply_patch(catalog,patch)
+    def test_new_bangumi_subjects_and_nonwork_categories(self):
+        catalog={'version':'v1','subjects':[],'segments':[{'id':'a','subject_ids':[]}]}
+        for kind in ('life','new_video'):
+            patch={'schema_version':1,'catalog_version':'v1','changes':[{'id':'a','subject_ids':[],'kind':kind,'reason':'核对话题'}]}
+            self.assertEqual(apply_patch(catalog,patch)['segments'][0]['kind'],kind)
+        for type_,platform in ((1,'小说'),(1,'漫画'),(4,'PC')):
+            subject={'id':42,'type':type_,'platform':platform,'name':'作品','original_name':'Original','aliases':['简称'],'image':'','summary':'','air_date':None}
+            patch={'schema_version':1,'catalog_version':'v1','subjects':[subject],'changes':[{'id':'a','subject_ids':[42],'kind':'discussion','reason':'核对 Bangumi'}]}
+            result=apply_patch(catalog,patch)
+            self.assertEqual(result['subjects'],[subject]);self.assertEqual(catalog['subjects'],[])
+            patch['changes'][0]['kind']='life'
+            with self.assertRaises(ValueError):apply_patch(catalog,patch)
+            patch['changes'][0]['subject_ids']=[]
+            with self.assertRaises(ValueError):apply_patch(catalog,patch)
+            patch['subjects']=[subject,subject]
+            with self.assertRaises(ValueError):apply_patch(catalog,patch)
+
     def test_review_rejects_unknown_subject(self):
         with self.assertRaises(ValueError):apply_patch({'version':'v1','subjects':[{'id':1}],'segments':[{'id':'a'}]},{'schema_version':1,'catalog_version':'v1','changes':[{'id':'a','subject_ids':[2],'kind':'discussion','reason':'test'}]})
 
