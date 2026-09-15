@@ -1,4 +1,4 @@
-import { mkdir, copyFile, readFile } from "node:fs/promises";
+import { mkdir, copyFile, readFile, cp } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import { validateCatalog } from "../site/domain.mjs";
@@ -25,3 +25,5 @@ await copyFile(join(root, "CNAME"), join(root, "dist/CNAME"));
 console.log(
   `Built static site: ${catalog.subjects.length} subjects, ${catalog.videos.length} videos, ${catalog.segments.length} timepoints.`,
 );
+
+await cp(join(root, "mobile"), join(root, "dist/mobile"), { recursive: true });

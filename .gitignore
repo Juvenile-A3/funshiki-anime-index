@@ -36,3 +36,5 @@ scripts/analyze.py
 scripts/report.py
 .git-sandbox-initial/
 .playwright-cli/
+
+!mobile/runtime/python_stdlib.zip

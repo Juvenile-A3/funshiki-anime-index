@@ -1,0 +1,3 @@
+// Atomic IndexedDB records; SQLite is persisted before a save is acknowledged.
+export async function database(){return new Promise((resolve,reject)=>{const r=indexedDB.open('funshiki-mobile-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('packages',{keyPath:'id'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+export async function stored(db,method,value){return new Promise((resolve,reject)=>{const tx=db.transaction('packages',method==='put'?'readwrite':'readonly'),r=tx.objectStore('packages')[method](value);let result;r.onsuccess=()=>result=r.result;tx.oncomplete=()=>resolve(result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||Error('本机存储操作已中断'));});}
