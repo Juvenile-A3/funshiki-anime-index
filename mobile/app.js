@@ -27,8 +27,8 @@ function qlabel(q){return q?`${q.slice(0,4)} 年 ${Number(q.slice(5))} 月`:'未
 function selectOptions(values, selected=''){return Object.entries(values).map(([k,v])=>`<option value="${esc(k)}" ${k===String(selected??'')?'selected':''}>${esc(v)}</option>`).join('');}
 function cover(url){return url?.startsWith('https://')?`<img loading="lazy" src="${esc(url)}" alt="作品封面" referrerpolicy="no-referrer">`:'';}
 function bangumiCategory(s){if(s.type===2)return ({TV:'tv','剧场版':'movie',OVA:'ova',WEB:'ona'})[s.platform]||'anime_other';if(s.type===1)return s.platform?.includes('小说')?'novel':s.platform?.includes('漫画')?'manga':'book';return ({3:'music',4:'game',6:'live_action'})[s.type]||'other';}
-function external(url,label){if(typeof url!=='string'||!/^https:\/\//.test(url))return esc(label);const bgm=/^https:\/\/(?:bgm.tv|bangumi.tv|chii.in)\/subject\//.test(url);return `<a class="${bgm?'jump-link bangumi-jump':''}" href="${esc(url)}" target="_blank" rel="noreferrer">${bgm?'查看 Bangumi ↗ <small>#'+esc(url.split('/').pop())+'</small>':esc(label)+' ↗'}</a>`;}
-function videoLink(e){return `<a class="jump-link video-jump" href="https://www.bilibili.com/video/${esc(e.recording_id)}/${e.p?'?p='+e.p+'&amp;t='+e.start:''}" target="_blank" rel="noreferrer">▶ ${e.p?'从 '+formatTime(e.start)+' 播放原视频 · P'+e.p:'打开所属录播'} ↗</a>`;}
+function external(url,label){if(typeof url!=='string'||!/^https:\/\//.test(url))return esc(label);const bgm=/^https:\/\/(?:bgm.tv|bangumi.tv|chii.in)\/subject\//.test(url);return `<a class="${bgm?'jump-link bangumi-jump':''}" href="${esc(url)}" target="_blank" rel="noreferrer">${bgm?'Bangumi ↗ <small>#'+esc(url.split('/').pop())+'</small>':esc(label)+' ↗'}</a>`;}
+function videoLink(e){return `<a class="jump-link video-jump" href="https://www.bilibili.com/video/${esc(e.recording_id)}/${e.p?'?p='+e.p+'&amp;t='+e.start:''}" target="_blank" rel="noreferrer">▶ ${e.p?'原视频 · P'+e.p+' '+formatTime(e.start):'打开所属录播'} ↗</a>`;}
 function snapshotSource(data){return `<details><summary>查看原始来源与校验摘要</summary>${(data.observations||[]).map(o=>`<p class="source-link">${esc(o.path)} · ${esc(o.locator)}<br><span class="muted">SHA-256 ${esc(o.sha256)}</span></p><pre>${esc(JSON.stringify(JSON.parse(o.payload),null,2))}</pre>`).join('')||'<p>手工新增记录，见修改记录。</p>'}</details>`;}
 
 async function refreshStats(){
@@ -37,7 +37,7 @@ async function refreshStats(){
 }
 function configureFilters(){
   $('#title').textContent=names[state.tab];$('#add-work').hidden=!['works','series'].includes(state.tab);$('#add-work').textContent=state.tab==='series'?'＋ 添加系列':'＋ 添加作品';
-  const descriptions={recordings:`杂谈回、茶话会、OP / ED 鉴赏和放映会。${stats.missing_pages} 条录播的弹幕版状态待补充，${stats.without_timeline} 条暂无时轴。`,entries:`默认显示待核对。直接确认、搜索纠错或选择非作品分类；${stats.high_confidence_entries||0} 条由已确认黑话唯一对应，标记为高可信度。`,works:'TV 动画按所属季度整理；剧场、OVA、网络动画、书籍、游戏等单独分类。',series:'把续作、篇章和改编纳入系列。系列黑话结合录播时间、作品时间及节目季度判断具体作品。',aliases:'同一黑话的不同候选集中判断。支持动画、游戏、小说和漫画；展开全部原文可逐条解绑。',audit_log:'直接查看谁把什么改成了什么。修改依据选填；可撤销此后未再变化的记录。',collaboration:'分享当前资料库和整理台，各自编辑后导入修改包，预览并合并。'};
+  const descriptions={recordings:`杂谈回、茶话会、OP / ED 鉴赏和放映会。${stats.missing_pages} 条录播的弹幕版状态待补充，${stats.without_timeline} 条暂无时轴。`,entries:`默认显示待核对。直接确认、搜索纠错或选择非作品分类；${stats.high_confidence_entries||0} 条由已确认黑话唯一对应，标记为高可信度。`,works:'TV 动画按所属季度整理；剧场、OVA、网络动画、书籍、游戏等单独分类。',series:'把续作、篇章和改编纳入系列。系列黑话结合录播时间、作品时间及节目季度判断具体作品。',aliases:'同一黑话的不同候选集中判断。支持动画、游戏、小说和漫画；对照原文，可逐条解绑。',audit_log:'直接查看谁把什么改成了什么。修改依据选填；可撤销此后未再变化的记录。',collaboration:'分享当前资料库和整理台，各自编辑后导入修改包，预览并合并。'};
   $('#subtitle').textContent=descriptions[state.tab];
   const category=state.tab==='recordings'?{'':'所有录播类型',...kinds}:state.tab==='entries'?{'':'所有话题',...topics}:state.tab==='works'?{'':'所有作品分类',...cats}:state.tab==='aliases'?{'':'所有状态',pending:'待核对',confirmed:'已确认',reference:'来源别名',rejected:'已排除'}:{};
   $('#filter-a').innerHTML=selectOptions(category);$('#filter-a').hidden=!Object.keys(category).length;

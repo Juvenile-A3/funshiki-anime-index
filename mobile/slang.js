@@ -1,8 +1,8 @@
-let h,groups=[],drafts=new Map(),expanded=new Set();
+let h,groups=[],drafts=new Map(),expanded=new Set(),occurrenceObserver;
 export function configureSlang(helpers){h=helpers;}
-export function bgmLink(id){return id?`<a class="jump-link bangumi-jump" href="https://bgm.tv/subject/${h.esc(id)}" target="_blank" rel="noreferrer">查看 Bangumi ↗ <small>#${h.esc(id)}</small></a>`:'';}
+export function bgmLink(id){return id?`<a class="jump-link bangumi-jump" href="https://bgm.tv/subject/${h.esc(id)}" target="_blank" rel="noreferrer">Bangumi ↗ <small>#${h.esc(id)}</small></a>`:'';}
 function choices(g,d){
-  return g.candidates.map(a=>`<div class="alias-choice ${d.selected.includes(a.id)?'chosen':''} ${a.status==='rejected'?'rejected-choice':''}"><label><input type="checkbox" data-alias-choice="${h.esc(a.id)}" ${d.selected.includes(a.id)?'checked':''}>${h.cover(a.cover_url)}<span><strong>${h.esc(a.target_kind==='series'?a.series_name:a.work_name)}</strong><small>${a.target_kind==='series'?'整个系列 · 按作品时间判断':h.esc(h.cats[a.work_category]||'具体作品')}${a.air_date?' · '+h.esc(a.air_date):''} · ${h.esc(a.scope||'全局')}</small>${h.pill(a.status)}</span></label><div class="alias-candidate-actions">${bgmLink(a.bangumi_id)}<button class="quiet" data-alias-edit="${h.esc(a.id)}">修改关键词 / 对象</button></div></div>`).join('');
+  return g.candidates.map(a=>`<div class="alias-choice ${d.selected.includes(a.id)?'chosen':''} ${a.status==='rejected'?'rejected-choice':''}"><label><input type="checkbox" data-alias-choice="${h.esc(a.id)}" ${d.selected.includes(a.id)?'checked':''}>${h.cover(a.cover_url)}<span><strong>${h.esc(a.target_kind==='series'?a.series_name:a.work_name)}</strong><small>${a.target_kind==='series'?'整个系列 · 按作品时间判断':h.esc(h.cats[a.work_category]||'具体作品')}${a.air_date?' · '+h.esc(a.air_date):''} · ${h.esc(a.scope||'全局')}</small></span></label><div class="alias-candidate-actions">${bgmLink(a.bangumi_id)}<button class="quiet" data-alias-edit="${h.esc(a.id)}">修改对象</button>${h.pill(a.status)}</div></div>`).join('');
 }
 export function renderSlang(data,{preserve=false}={}){
   const old=groups,previous=drafts;groups=data;drafts=new Map();
@@ -11,7 +11,7 @@ export function renderSlang(data,{preserve=false}={}){
     let selected=g.candidates.filter(a=>a.status==='confirmed').map(a=>a.id);
     if(!selected.length&&g.candidates.filter(a=>a.status!=='rejected').length===1)selected=g.candidates.filter(a=>a.status!=='rejected').map(a=>a.id);
     let d={selected};if(preserve&&old.some(x=>x.id===g.id&&x.fingerprint===g.fingerprint))d=previous.get(g.id)||d;drafts.set(g.id,d);
-    return `<article class="review-card slang-group" data-row="${h.esc(g.id)}"><header class="review-head"><h2>「${h.esc(g.term)}」</h2><span>${g.candidates.length} 个对应放在一起核对</span></header><p class="muted">勾选正确对象；保存时，其余待核对或已核对对象会标为排除。确实有多种含义时可多选。</p><div class="alias-candidates">${choices(g,d)}</div><div class="review-controls"><button class="primary" data-group-confirm>${selected.length===1&&g.candidates.length===1?'确认正确':'确认所选对应'}</button><button data-group-reject>这些对应都不对</button><span class="muted">游戏、小说、漫画和动画各自保留。</span></div><section class="group-correction"><p class="muted">搜索其他作品，或改为一个系列</p><div class="quick-search"><input data-slang-search type="search" placeholder="作品名、别名或 Bangumi ID" aria-label="黑话指代作品搜索"><select data-source aria-label="搜索来源"><option value="local">库内作品</option><option value="remote">Bangumi</option></select><select data-type aria-label="指代作品类型"><option value="">全部类型</option><option value="4">游戏</option><option value="1">小说 / 漫画 / 书籍</option><option value="2">动画</option><option value="3">音乐</option><option value="6">真人 / 特摄</option></select><button data-search-go>搜索</button></div><div data-slang-results></div><div class="row series-add"><label>整个系列 <select data-new-series>${h.selectOptions({'':'选择系列',...Object.fromEntries(h.getOptions().series.map(s=>[s.id,s.name]))})}</select></label><button data-series-add>加入候选一起判断</button></div></section><details class="occurrences" data-occurrences ${expanded.has(g.id)?'open':''}><summary>查看全部原文与录播时点 · 可逐条解绑</summary><div data-occurrence-body></div></details></article>`;
+    return `<article class="review-card slang-group" data-row="${h.esc(g.id)}"><header class="review-head"><h2>「${h.esc(g.term)}」</h2><span>${g.candidates.length} 个对应放在一起核对</span></header><div class="review-layout"><section class="decision-panel"><div class="alias-candidates">${choices(g,d)}</div><div class="review-controls"><button class="primary" data-group-confirm>${selected.length===1&&g.candidates.length===1?'确认正确':'确认所选对应'}</button><button data-group-reject>这些对应都不对</button></div><section class="group-correction"><div class="quick-search"><input data-slang-search type="search" placeholder="作品名、别名或 Bangumi ID" aria-label="黑话指代作品搜索"><select data-source aria-label="搜索来源"><option value="local">库内作品</option><option value="remote">Bangumi</option></select><select data-type aria-label="指代作品类型"><option value="">全部类型</option><option value="4">游戏</option><option value="1">小说 / 漫画 / 书籍</option><option value="2">动画</option><option value="3">音乐</option><option value="6">真人 / 特摄</option></select><button data-search-go>搜索</button></div><div data-slang-results></div><div class="row series-add"><label>整个系列 <select data-new-series>${h.selectOptions({'':'选择系列',...Object.fromEntries(h.getOptions().series.map(s=>[s.id,s.name]))})}</select></label><button data-series-add>加入候选一起判断</button></div></section></section><section class="reference-panel occurrences" data-occurrences aria-label="对应原文"><h3>对应原文</h3><p class="muted">勾选正确对象，可多选；其余候选会被排除。解绑只影响该段与黑话的关联。</p><div data-occurrence-body><p class="muted">正在读取原文…</p></div></section></div></article>`;
   }).join('');
 }
 function groupPayload(g){const d=drafts.get(g.id);if(!d.selected.length)throw Error(`「${g.term}」有多个或未确定的候选，请勾选正确对象；全都不对可直接排除。`);return {normalized:g.normalized,fingerprint:g.fingerprint,selected_ids:d.selected};}
@@ -23,6 +23,8 @@ export async function confirmSlangPage(){
 }
 export function wireSlang(){
   const {$,$$,api,busy,esc,toast}=h;
+  occurrenceObserver?.disconnect();
+  occurrenceObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){occurrenceObserver.unobserve(entry.target);entry.target.loadOccurrences?.();}},{rootMargin:'150px 0px'});
   for(const card of $$('.slang-group')){
     const g=groups.find(x=>x.id===card.dataset.row),d=drafts.get(g.id);
     $$('[data-alias-choice]',card).forEach(x=>x.onchange=()=>{d.selected=$$('[data-alias-choice]:checked',card).map(c=>c.dataset.aliasChoice);x.closest('.alias-choice').classList.toggle('chosen',x.checked);});
@@ -46,13 +48,16 @@ export function wireSlang(){
     $('[data-slang-search]',card).onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();clearTimeout(debounce);search();}};
     $('[data-source]',card).onchange=()=>{++seq;$('[data-slang-results]',card).innerHTML='';};
     $('[data-series-add]',card).onclick=e=>busy(e.target,async()=>{const sid=$('[data-new-series]',card).value;if(!sid)throw Error('请先选择系列');await api('alias',{term:g.term,target_kind:'series',series_id:sid,status:'pending'});toast('系列已加入这组候选');await h.afterSave();});
-    const details=$('[data-occurrences]',card),body=$('[data-occurrence-body]',card);let loaded=false;
+    const body=$('[data-occurrence-body]',card);let loaded=false;
     async function showOccurrences(){
       if(loaded)return;loaded=true;body.innerHTML='<p>正在读取全部原文…</p>';
       try{
         const r=await api('alias-occurrences?'+new URLSearchParams({term:g.normalized}));
+        if(!card.isConnected)return;
         function render(){
-          body.innerHTML=`<p class="occurrence-count">共 ${r.total} 条原文；${r.items.filter(x=>x.excluded).length} 条已解绑。解绑不删除笔记，也不改变人工确认过的作品。</p><div class="occurrence-list">${r.items.map((x,i)=>`<article class="occurrence ${x.excluded?'excluded-occurrence':''}" data-occurrence-row="${i}"><div class="row">${h.videoLink(x)}<button data-toggle-occurrence="${i}">${x.excluded?'恢复关联':'解绑此原文'}</button><span class="pill">${x.excluded?'已解绑':x.current_match?'参与识别':'历史原文 / 证据'}</span></div><p class="occurrence-text">${esc(x.original_description||x.description)}</p>${x.original_description!==x.description?'<p class="muted">当前描述：'+esc(x.description)+'</p>':''}<p class="muted">${esc(x.recording_title)}<br>${esc(x.source_locator)}${x.author?' · '+esc(x.author):''} ${h.external(x.note_url,'打开原笔记')}</p></article>`).join('')||'<p>没有匹配的时轴原文。</p>'}</div>`;
+          const many=r.total>5,all=expanded.has(g.id),visible=many&&!all?r.items.slice(0,3):r.items;
+          body.innerHTML=`<p class="occurrence-count">${r.total} 条原文${r.items.some(x=>x.excluded)?' · '+r.items.filter(x=>x.excluded).length+' 条已解绑':''}</p><div class="occurrence-list ${many&&all?'expanded-list':''}">${visible.map((x,i)=>`<article class="occurrence ${x.excluded?'excluded-occurrence':''}" data-occurrence-row="${i}"><p class="occurrence-text">${esc(x.original_description||x.description)}</p>${x.original_description!==x.description?'<p class="muted">当前：'+esc(x.description)+'</p>':''}<div class="occurrence-source">${esc(x.recording_title)}<br>${esc(x.source_locator)}${x.author?' · '+esc(x.author):''}</div><div class="row occurrence-actions">${h.videoLink(x)}<button class="quiet" data-toggle-occurrence="${i}">${x.excluded?'恢复关联':'解绑'}</button>${h.external(x.note_url,'原笔记')}${x.excluded?'<span class="pill">已解绑</span>':''}</div></article>`).join('')||'<p class="muted">没有匹配的时轴原文。</p>'}</div>${many?`<button class="quiet occurrence-more" data-more-occurrences aria-expanded="${all}">${all?'收起更多原文':'展开其余 '+(r.total-visible.length)+' 条 · 共 '+r.total+' 条'}</button>`:''}`;
+          $('[data-more-occurrences]',body)?.addEventListener('click',()=>{if(expanded.has(g.id))expanded.delete(g.id);else expanded.add(g.id);render();});
           $$('[data-toggle-occurrence]',body).forEach(b=>b.onclick=()=>busy(b,async()=>{
             const i=Number(b.dataset.toggleOccurrence),x=r.items[i],position=$('.occurrence-list',body).scrollTop;
             const saved=await api('alias-occurrence',{entry_id:x.id,term:g.term,excluded:!x.excluded,revision:x.exclusion_revision});
@@ -61,8 +66,8 @@ export function wireSlang(){
           }));
         }
         render();
-      }catch(error){loaded=false;body.innerHTML=`<p class="error-text">${esc(error.message)}，收起后可重新展开。</p>`;}
+      }catch(error){loaded=false;body.innerHTML=`<p class="error-text">${esc(error.message)}</p><button data-retry-occurrences>重试读取原文</button>`;$('[data-retry-occurrences]',body).onclick=showOccurrences;}
     }
-    details.ontoggle=()=>{if(details.open){expanded.add(g.id);showOccurrences();}else expanded.delete(g.id);};if(details.open)showOccurrences();
+    card.loadOccurrences=showOccurrences;occurrenceObserver.observe(card);
   }
 }
