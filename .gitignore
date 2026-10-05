@@ -9,6 +9,12 @@ __pycache__/
 data/raw/
 data/latest/
 data/all-timeline-notes/
+data/new-anime-tea-party-notes/
+data/library/
+output/playwright/
+output/workflow-qa/
+output/slang-qa/
+output/slang-workbench/
 data/*-contents*.json
 data/evidence-manifest.json
 data/timepoints.json
@@ -36,5 +42,26 @@ scripts/analyze.py
 scripts/report.py
 .git-sandbox-initial/
 .playwright-cli/
+output/mobile-qa/
+output/mobile-publish/
+output/mobile-workbench/
+# The browser application has its own Sites source repository.
+mobile-app/
 
-!mobile/runtime/python_stdlib.zip
+# Local database, editing tools, and review material
+mobile/
+database/
+design-previews/
+workbench/
+output/
+docs/
+.github/workflows/collect.yml
+config/mapping-rules.json
+config/sources.json
+config/subjects-seed.json
+config/note-review.json
+config/recognition.json
+scripts/*.py
+tests/test_*.py
+tests/subjects.test.mjs
+tests/fixtures/

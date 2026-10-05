@@ -13,6 +13,6 @@ body:
     id: change
     attributes:
       label: 建议修正与依据
-      description: 请附 Bangumi 条目、原始笔记或实际观看依据；也可附工作台导出的补丁。
+      description: 请附 Bangumi 条目、原始笔记或实际观看依据。
     validations:
       required: true

@@ -1,13 +1,15 @@
-import { mkdir, copyFile, readFile, cp } from "node:fs/promises";
+import { mkdir, copyFile, readFile, rm } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import { validateCatalog } from "../site/domain.mjs";
 const root = fileURLToPath(new URL("../", import.meta.url));
+const dist = join(root, "dist");
 const catalog = JSON.parse(
   await readFile(join(root, "data/catalog.json"), "utf8"),
 );
 validateCatalog(catalog);
-await mkdir(join(root, "dist"), { recursive: true });
+await rm(dist, { recursive: true, force: true });
+await mkdir(dist, { recursive: true });
 for (const file of [
   "index.html",
   "app.mjs",
@@ -25,5 +27,3 @@ await copyFile(join(root, "CNAME"), join(root, "dist/CNAME"));
 console.log(
   `Built static site: ${catalog.subjects.length} subjects, ${catalog.videos.length} videos, ${catalog.segments.length} timepoints.`,
 );
-
-await cp(join(root, "mobile"), join(root, "dist/mobile"), { recursive: true });

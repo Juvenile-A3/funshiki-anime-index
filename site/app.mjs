@@ -5,7 +5,7 @@ import {
   parseRoute,
   validateCatalog,
   videoUrl, recordingDate, quarterLabel,
-  categories, contentKinds, subjectCategory, isIndexedSegment, recognizeSubjects, searchBangumi, fromBangumi, getBangumiSubject,
+  categories, subjectCategory, isIndexedSegment,
 } from "./domain.mjs";
 const main = document.querySelector("main");
 document.querySelector(".skip").addEventListener("click", (e) => {
@@ -17,7 +17,6 @@ let data,
   config,
   preRoll = 0,
   timelineOrder = "desc";
-const kinds = contentKinds;
 const subject = (id) => data.subjects.find((s) => s.id === id);
 const video = (bvid) => data.videos.find((v) => v.bvid === bvid);
 const external = (href, label, cls = "") =>
@@ -131,7 +130,7 @@ function home() {
 function segment(e, { showVideo = true, showSubject = false } = {}) {
   const v = video(e.bvid);
   const tags = `${!e.subject_ids.length && isIndexedSegment(e) ? pill("作品待确认", "muted") : ""}${e.review === "text-reviewed" ? '<span class="reviewed" title="已根据笔记与 Bangumi 条目核对，尚未逐段观看">✓ 条目已核对</span>' : ""}`;
-  return `<article class="segment" id="${esc(e.id)}"><div class="segment-time"><strong>${formatTime(e.targets[0].seconds)}</strong>${e.targets[0].end_seconds !== undefined ? `<span class="segment-end">至 ${formatTime(e.targets[0].end_seconds)}</span>` : ""}${showVideo ? `<span class="segment-date">${formatMonthDay(dateOf(v))}</span>` : ""}</div><div class="segment-body">${tags ? `<div class="segment-tags">${tags}</div>` : ""}<h3>${esc(e.text)}</h3>${showVideo ? `<a class="source-video" href="#/video/${v.bvid}">${esc(shortTitle(v.title))}</a>` : ""}${showSubject && isIndexedSegment(e) && e.subject_ids.length ? `<div class="subject-links">${e.subject_ids.map((id) => `<a href="#/anime/${id}">${esc(subject(id).name)} ↗</a>`).join("")}</div>` : ""}</div><div class="segment-actions">${e.targets.map((t, i) => external(videoUrl(e.bvid, t.p, t.seconds, preRoll), `${t.variant === "source" ? "跳转切片" : t.variant === "danmaku" ? "弹幕版" : "普通版"} <span aria-hidden="true">↗</span>`, i === 0 ? "play primary" : "play")).join("")}</div><a class="segment-correction" href="#/review?entry=${encodeURIComponent(e.id)}">纠错</a></article>`;
+  return `<article class="segment" id="${esc(e.id)}"><div class="segment-time"><strong>${formatTime(e.targets[0].seconds)}</strong>${e.targets[0].end_seconds !== undefined ? `<span class="segment-end">至 ${formatTime(e.targets[0].end_seconds)}</span>` : ""}${showVideo ? `<span class="segment-date">${formatMonthDay(dateOf(v))}</span>` : ""}</div><div class="segment-body">${tags ? `<div class="segment-tags">${tags}</div>` : ""}<h3>${esc(e.text)}</h3>${showVideo ? `<a class="source-video" href="#/video/${v.bvid}">${esc(shortTitle(v.title))}</a>` : ""}${showSubject && isIndexedSegment(e) && e.subject_ids.length ? `<div class="subject-links">${e.subject_ids.map((id) => `<a href="#/anime/${id}">${esc(subject(id).name)} ↗</a>`).join("")}</div>` : ""}</div><div class="segment-actions">${e.targets.map((t, i) => external(videoUrl(e.bvid, t.p, t.seconds, preRoll), `${t.variant === "source" ? "跳转切片" : t.variant === "danmaku" ? "弹幕版" : "普通版"} <span aria-hidden="true">↗</span>`, i === 0 ? "play primary" : "play")).join("")}</div></article>`;
 }
 function replayControl() {
   return `<label class="preroll"><input id="preroll" type="checkbox" ${preRoll ? "checked" : ""}> 提前 5 秒进入上下文</label>`;
@@ -240,124 +239,6 @@ function videoPage(bvid) {
 function aboutPage() {
   main.replaceChildren();
 }
-const draftKey = "funshiki-review-v1";
-function getDrafts() {
-  try {
-    const d = JSON.parse(localStorage.getItem(draftKey) || "{}");
-    return d && typeof d === "object" && !Array.isArray(d) ? d : {};
-  } catch {
-    return {};
-  }
-}
-function reviewPage() {
-  const route = parseRoute(location.hash);
-  const selected = route.params.get("entry");
-  const all = route.params.get("all") === "1";
-  const candidates = data.segments.filter(e => selected ? e.id === selected : all || (!e.subject_ids.length && isIndexedSegment(e)));
-  const drafts = getDrafts();
-  const pool = new Map(data.subjects.map(s => [s.id, s]));
-  Object.values(drafts).flatMap(d => d.subjects || []).forEach(s => { if (!pool.has(s.id)) pool.set(s.id, s); });
-  main.innerHTML = `<div class="page-wrap"><div class="page-title"><h1>一起把线索补完整。</h1><p>识别作品、搜索 Bangumi，再保存审核草稿。聊生活、聊新视频暂不进入作品，仍保留整期时间轴。</p></div><div class="review-toolbar"><span>${candidates.length} 条记录 · <b id="draft-count">${Object.keys(drafts).length}</b> 条本地草稿</span><button id="export-drafts">导出审核补丁 ↓</button><a href="#/review">待确认线索</a><a href="#/review?all=1">全部话题（含已分类）</a></div><p id="review-status" class="status" role="status"></p><div class="review-list"></div></div>`;
-  const status = document.querySelector("#review-status");
-  for (const entry of candidates) {
-    const draft = drafts[entry.id] || entry;
-    const chosen = new Set(draft.subject_ids);
-    const form = document.createElement("form");
-    form.className = "review-card";
-    form.innerHTML = `<div class="eyebrow">${formatDate(dateOf(video(entry.bvid)))} · ${formatTime(entry.targets[0].seconds)}</div><h2>${esc(entry.text)}</h2><p>${external(entry.source.url, "查看原始来源 ↗")} · ${external(videoUrl(entry.bvid, entry.targets[0].p, entry.targets[0].seconds), "观看对应切片 ↗")}</p><label>内容分类<select name="kind">${Object.entries(kinds).map(([key, label]) => `<option value="${key}" ${draft.kind === key ? "selected" : ""}>${label}</option>`).join("")}</select></label><fieldset class="work-picker"><legend>关联作品（可选多个）</legend><div class="chosen-subjects"></div><div class="local-matches"></div><div class="bangumi-search"><label>作品名或简称<input name="keyword" value="${esc(entry.text)}" maxlength="100" placeholder="输入作品名称"></label><label>搜索范围<select name="type"><option value="all">全部作品</option><option value="2">动画</option><option value="1">书籍（小说 / 漫画）</option><option value="4">游戏</option></select></label><button type="button" class="search-bangumi">搜索 Bangumi</button></div><p class="search-status" role="status"></p><div class="bangumi-results"></div><button type="button" class="more-results" hidden>下一页</button></fieldset><label>修正依据<input name="reason" required maxlength="500" value="${esc(draft.reason || "")}" placeholder="说明作品、版本或话题分类的核对依据"></label><button type="submit">保存本地草稿</button><button type="button" class="discard">丢弃此条草稿</button>`;
-    document.querySelector(".review-list").append(form);
-    const kind = form.elements.kind;
-    const picker = form.querySelector(".work-picker");
-    const drawChosen = () => {
-      const container = form.querySelector(".chosen-subjects");
-      container.innerHTML = chosen.size ? [...chosen].map(id => `<button type="button" data-remove="${id}">${esc(pool.get(id)?.name || String(id))} · 移除 ×</button>`).join("") : '<p class="subtle">暂未关联作品</p>';
-      container.querySelectorAll("[data-remove]").forEach(b => b.onclick = () => { chosen.delete(Number(b.dataset.remove)); drawChosen(); });
-    };
-    const drawResults = (container, subjects, local = false) => {
-      container.innerHTML = subjects.map(s => `<div class="bangumi-result"><div><strong>${esc(s.name)}</strong><small>${esc(categories[subjectCategory(s)])} · ${esc(s.air_date || "日期未定")} · #${s.id}<br>${esc(s.original_name)}</small></div>${external(`https://bgm.tv/subject/${s.id}`, "查看 ↗")}<button type="button" data-add="${s.id}">${local ? "关联候选" : "关联作品"}</button></div>`).join("");
-      container.querySelectorAll("[data-add]").forEach(button => button.onclick = async () => {
-        const id = Number(button.dataset.add);
-        button.disabled = true;
-        try {
-          if (!pool.has(id)) {
-            const s = fromBangumi(await getBangumiSubject(id));
-            pool.set(id, s);
-          }
-          chosen.add(id); drawChosen(); button.textContent = "已关联";
-        } catch (error) { form.querySelector(".search-status").textContent = `${error.message}，请重试。`; }
-        finally { button.disabled = false; }
-      });
-    };
-    const localMatches = () => drawResults(form.querySelector(".local-matches"), recognizeSubjects([...pool.values()], form.elements.keyword.value), true);
-    form.elements.keyword.addEventListener("input", localMatches);
-    const toggleKind = () => { picker.disabled = !isIndexedSegment({ kind: kind.value }); };
-    kind.addEventListener("change", toggleKind);
-    toggleKind(); drawChosen(); localMatches();
-    let offset = 0, searchKey = "", searchType = "all";
-    const searchButton = form.querySelector(".search-bangumi");
-    const more = form.querySelector(".more-results");
-    const runSearch = async (next = false) => {
-      if (searchButton.disabled) return;
-      if (!next) { offset = 0; searchKey = form.elements.keyword.value; searchType = form.elements.type.value; }
-      searchButton.disabled = true; more.disabled = true;
-      const message = form.querySelector(".search-status");
-      message.textContent = "正在搜索 Bangumi…";
-      form.querySelector(".bangumi-results").replaceChildren();
-      more.hidden = true;
-      try {
-        const result = await searchBangumi(searchKey, searchType, offset);
-        drawResults(form.querySelector(".bangumi-results"), result.subjects);
-        message.textContent = result.warning || (result.subjects.length ? "" : "没有找到作品，请尝试其他名称。");
-        offset = result.nextOffset;
-        more.hidden = !result.hasMore;
-      } catch (error) { message.textContent = `${error.message}。可重试搜索；已有草稿仍可保存。`; }
-      finally { searchButton.disabled = false; more.disabled = false; }
-    };
-    searchButton.onclick = () => runSearch();
-    more.onclick = () => runSearch(true);
-    form.elements.keyword.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); runSearch(); } });
-    form.onsubmit = e => {
-      e.preventDefault();
-      const reason = form.elements.reason.value.trim();
-      if (!reason) { status.textContent = "请填写修正依据。"; return; }
-      const subject_ids = isIndexedSegment({ kind: kind.value }) ? [...chosen] : [];
-      const current = getDrafts();
-      current[entry.id] = { id: entry.id, kind: kind.value, subject_ids, reason,
-        subjects: subject_ids.filter(id => !subject(id)).map(id => pool.get(id)) };
-      try {
-        localStorage.setItem(draftKey, JSON.stringify(current));
-        document.querySelector("#draft-count").textContent = Object.keys(current).length;
-        status.textContent = "草稿已保存；导出并应用审核补丁后更新公开索引。";
-      } catch { status.textContent = "浏览器无法保存草稿，请检查存储权限。"; }
-    };
-    form.querySelector(".discard").onclick = () => {
-      const current = getDrafts(); delete current[entry.id];
-      try { localStorage.setItem(draftKey, JSON.stringify(current)); reviewPage(); }
-      catch { status.textContent = "无法更新浏览器存储。"; }
-    };
-  }
-  if (!candidates.length) document.querySelector(".review-list").innerHTML = '<p class="empty">暂时没有待确认记录，可查看全部话题。</p>';
-  document.querySelector("#export-drafts").onclick = () => {
-    const records = Object.values(getDrafts());
-    if (!records.length) { status.textContent = "还没有可导出的草稿。"; return; }
-    const subjects = [...new Map(records.flatMap(d => d.subjects || []).map(s => [s.id, s])).values()];
-    const serialized = JSON.stringify({ schema_version: 1, catalog_version: data.version, subjects,
-      changes: records.map(({ subjects, ...change }) => change) }, null, 2);
-    let output = document.querySelector("#patch-json");
-    if (!output) {
-      const label = document.createElement("label"); label.className = "patch-output";
-      label.textContent = "审核补丁 JSON（也可复制保存为 .json 文件）";
-      output = document.createElement("textarea"); output.id = "patch-json"; output.readOnly = true; output.rows = 10;
-      label.append(output); status.after(label);
-    }
-    output.value = serialized;
-    const url = URL.createObjectURL(new Blob([serialized], { type: "application/json" }));
-    const a = document.createElement("a"); a.href = url; a.download = "funshiki-review-patch.json"; a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    status.textContent = "补丁已生成，包含新增 Bangumi 作品；尚未修改已发布索引。";
-  };
-}
-
 function notFound() {
   main.innerHTML =
     '<div class="page-wrap empty"><h1>这份档案还不存在</h1><p>链接可能已变更，也可能暂未收录。</p><a href="#/">回到作品 ↗</a></div>';
@@ -382,7 +263,6 @@ function render() {
   else if (r.page === "videos") videosPage();
   else if (r.page === "video") videoPage(r.id);
   else if (r.page === "about") aboutPage();
-  else if (r.page === "review") reviewPage();
   else notFound();
   document.title =
     (r.page === "anime" && subject(Number(r.id))
