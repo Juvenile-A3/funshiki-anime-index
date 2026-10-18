@@ -96,6 +96,7 @@ export function findSubjects(
 }
 export function animeQuarter(subject) {
   if (subjectCategory(subject) !== "anime") return "";
+  if (!subject.quarter || subject.quarter === "999999") return "999999";
   const match = /^(\d{4})(0[1-9]|1[0-2])$/.exec(subject.quarter || "");
   if (!match) return "";
   const month = Math.floor((Number(match[2]) - 1) / 3) * 3 + 1;
@@ -114,7 +115,7 @@ export function findHomeSubjects(data, {
     if (quarter !== "all" && seasonQuarter !== quarter) return false;
     if (quickFilter === "current") return seasonQuarter === currentQuarter;
     if (quickFilter === "time-machine") return timeMachineQuarters.includes(seasonQuarter);
-    if (quickFilter === "satellite") return seasonQuarter > currentQuarter;
+    if (quickFilter === "satellite") return seasonQuarter === "999999" || seasonQuarter > currentQuarter;
     return true;
   });
   if (quickFilter === "time-machine") {

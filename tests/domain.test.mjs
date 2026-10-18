@@ -43,6 +43,20 @@ test('January time machine includes the previous October across the year boundar
   }).map(s => s.id), [1, 2]);
 });
 
+test('undated quarter and satellite include unscheduled anime alongside future releases', () => {
+  const catalog = homeData([
+    [1, '999999', 4], [2, '202701', 3], [3, '202610', 6],
+    [4, '202607', 5], [5, '999999', 8, 4], [6, null, 2],
+  ]);
+  const options = { now: new Date(2026, 9, 19) };
+  assert.deepEqual(findHomeSubjects(catalog, { ...options, quarter: '999999' }).map(s => s.id), [1, 6]);
+  assert.deepEqual(findHomeSubjects(catalog, { ...options, quickFilter: 'satellite' }).map(s => s.id), [1, 2, 6]);
+  assert.deepEqual(findHomeSubjects(catalog, {
+    ...options, quickFilter: 'satellite', quarter: '999999',
+  }).map(s => s.id), [1, 6]);
+  assert.deepEqual(findHomeSubjects(catalog, { ...options, quickFilter: 'current' }).map(s => s.id), [3]);
+});
+
 test('published catalog is valid and searchable by source title', () => {
   assert.equal(validateCatalog(data), true);
   const first = data.subjects[0];
