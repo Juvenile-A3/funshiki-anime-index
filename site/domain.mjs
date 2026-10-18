@@ -94,6 +94,35 @@ export function findSubjects(
           a.name.localeCompare(b.name, "zh-CN"),
     );
 }
+export function animeQuarter(subject) {
+  if (subjectCategory(subject) !== "anime") return "";
+  const match = /^(\d{4})(0[1-9]|1[0-2])$/.exec(subject.quarter || "");
+  if (!match) return "";
+  const month = Math.floor((Number(match[2]) - 1) / 3) * 3 + 1;
+  return `${match[1]}${String(month).padStart(2, "0")}`;
+}
+
+export function findHomeSubjects(data, {
+  query = "", category = "all", quarter = "all", quickFilter = "all", now = new Date(),
+} = {}) {
+  const season = now.getFullYear() * 4 + Math.floor(now.getMonth() / 3);
+  const quarterKey = (index) => `${Math.floor(index / 4)}${String(index % 4 * 3 + 1).padStart(2, "0")}`;
+  const currentQuarter = quarterKey(season);
+  const timeMachineQuarters = [quarterKey(season - 40), quarterKey(season - 41)];
+  const subjects = findSubjects(data, query, "all", "count", category).filter((s) => {
+    const seasonQuarter = animeQuarter(s);
+    if (quarter !== "all" && seasonQuarter !== quarter) return false;
+    if (quickFilter === "current") return seasonQuarter === currentQuarter;
+    if (quickFilter === "time-machine") return timeMachineQuarters.includes(seasonQuarter);
+    if (quickFilter === "satellite") return seasonQuarter > currentQuarter;
+    return true;
+  });
+  if (quickFilter === "time-machine") {
+    subjects.sort((a, b) => animeQuarter(b).localeCompare(animeQuarter(a)));
+  }
+  return subjects;
+}
+
 export function validateCatalog(data) {
   if (data.schema_version !== 1) throw new Error("不支持的数据版本");
   for (const key of ["subjects", "videos", "segments"])

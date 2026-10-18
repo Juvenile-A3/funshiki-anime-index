@@ -1,7 +1,7 @@
 import {
   escapeHtml as esc,
   formatTime,
-  findSubjects,
+  findSubjects, findHomeSubjects, animeQuarter,
   parseRoute,
   validateCatalog,
   videoUrl, recordingDate, quarterLabel,
@@ -42,37 +42,18 @@ function home() {
   const presenters = ["大鼻子叔叔", "诶嘿酱", "泛哥哥"];
   const presenter = presenters[Math.floor(Math.random() * presenters.length)];
   const recommended = findSubjects(data, "", "all", "count").slice(0, 3);
-  const now = new Date();
-  const seasonMonth = Math.floor(now.getMonth() / 3) * 3 + 1;
-  const currentQuarter = `${now.getFullYear()}${String(seasonMonth).padStart(2, "0")}`;
-  const timeMachineQuarter = `${now.getFullYear() - 10}${String(seasonMonth).padStart(2, "0")}`;
-  const animeQuarter = (s) => {
-    if (subjectCategory(s) !== "anime") return "";
-    const match = /^(\d{4})(0[1-9]|1[0-2])$/.exec(s.quarter || "");
-    if (!match) return "";
-    const month = Math.floor((Number(match[2]) - 1) / 3) * 3 + 1;
-    return `${match[1]}${String(month).padStart(2, "0")}`;
-  };
   const animeQuarters = [...new Set(data.subjects.map(animeQuarter).filter(Boolean))]
     .sort()
     .reverse();
   let quickFilter = "all";
-  main.innerHTML = `<section class="hero"><div class="hero-copy"><h1>想听<span class="host-name">${presenter}</span>聊什么？</h1><form class="search" id="search-form" role="search"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="搜索作品名称" placeholder="搜索作品名称" value="${esc(q)}" autocomplete="off"><button class="search-submit" type="submit" aria-label="搜索"><span aria-hidden="true">↗</span></button></form><div class="suggestions"><span>试试搜索：</span>${recommended.map((s) => `<button data-query="${esc(s.name)}">${esc(s.name)}</button>`).join("")}</div></div><aside class="hero-aside" aria-label="档案概况"><div class="archive-number">${String(findSubjects(data).length).padStart(2, "0")}<small>部作品</small></div><div class="archive-divider"></div><div class="aside-stats"><span><b>${data.videos.length}</b>期录播</span><span><b>${data.segments.filter((e) => isIndexedSegment(e) && e.subject_ids.length).length}</b>个切片</span></div></aside></section><section class="catalog-section" aria-labelledby="catalog-title"><div class="section-head"><div class="catalog-heading"><h2 id="catalog-title">聊过的作品 <span id="result-count"></span></h2><div class="quick-filters" aria-label="快捷筛选"><button type="button" data-quick-filter="current">当季热播</button><button type="button" data-quick-filter="time-machine">时光机</button><button type="button" data-quick-filter="satellite">新番卫星</button></div></div><div class="filters"><label class="sr-only" for="category">作品分类</label><select id="category"><option value="all">全部类型</option>${Object.entries(categories).filter(([k]) => !["book", "music", "unknown"].includes(k)).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select><label class="sr-only" for="quarter">作品季度</label><select id="quarter"><option value="all">全部季度</option>${animeQuarters.map(q => `<option value="${q}">${quarterLabel(q)}</option>`).join("")}</select><label class="sr-only" for="sort">排序</label><select id="sort"><option value="recent">最近聊到</option><option value="count">收录切片最多</option></select></div></div><div id="anime-grid" class="anime-grid"></div></section>`;
+  main.innerHTML = `<section class="hero"><div class="hero-copy"><h1>想听<span class="host-name">${presenter}</span>聊什么？</h1><form class="search" id="search-form" role="search"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="搜索作品名称" placeholder="搜索作品名称" value="${esc(q)}" autocomplete="off"><button class="search-submit" type="submit" aria-label="搜索"><span aria-hidden="true">↗</span></button></form><div class="suggestions"><span>试试搜索：</span>${recommended.map((s) => `<button data-query="${esc(s.name)}">${esc(s.name)}</button>`).join("")}</div></div><aside class="hero-aside" aria-label="档案概况"><div class="archive-number">${String(findSubjects(data).length).padStart(2, "0")}<small>部作品</small></div><div class="archive-divider"></div><div class="aside-stats"><span><b>${data.videos.length}</b>期录播</span><span><b>${data.segments.filter((e) => isIndexedSegment(e) && e.subject_ids.length).length}</b>个切片</span></div></aside></section><section class="catalog-section" aria-labelledby="catalog-title"><div class="section-head"><div class="catalog-heading"><h2 id="catalog-title">聊过的作品 <span id="result-count"></span></h2><div class="quick-filters" aria-label="快捷筛选"><button type="button" data-quick-filter="current">当季热播</button><button type="button" data-quick-filter="time-machine">时光机</button><button type="button" data-quick-filter="satellite">新番卫星</button></div></div><div class="filters"><label class="sr-only" for="category">作品分类</label><select id="category"><option value="all">全部类型</option>${Object.entries(categories).filter(([k]) => !["book", "music", "unknown"].includes(k)).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select><label class="sr-only" for="quarter">作品季度</label><select id="quarter"><option value="all">全部季度</option>${animeQuarters.map(q => `<option value="${q}">${quarterLabel(q)}</option>`).join("")}</select></div></div><div id="anime-grid" class="anime-grid"></div></section>`;
   const update = () => {
     const selectedQuarter = document.querySelector("#quarter").value;
-    const results = findSubjects(
-      data,
-      document.querySelector("#search").value,
-      "all",
-      document.querySelector("#sort").value,
-      document.querySelector("#category").value,
-      "all",
-    ).filter((s) => {
-      if (selectedQuarter !== "all" && animeQuarter(s) !== selectedQuarter) return false;
-      if (quickFilter === "current") return animeQuarter(s) === currentQuarter;
-      if (quickFilter === "time-machine") return animeQuarter(s) === timeMachineQuarter;
-      if (quickFilter === "satellite") return animeQuarter(s) > currentQuarter;
-      return true;
+    const results = findHomeSubjects(data, {
+      query: document.querySelector("#search").value,
+      category: document.querySelector("#category").value,
+      quarter: selectedQuarter,
+      quickFilter,
     });
     document.querySelectorAll("[data-quick-filter]").forEach((button) => {
       const selected = button.dataset.quickFilter === quickFilter;
@@ -88,25 +69,15 @@ function home() {
       document.querySelector("#category").value = "all";
       document.querySelector("#quarter").value = "all";
       quickFilter = "all";
-      syncTimeSort();
       update();
     });
   };
-  const syncTimeSort = () => {
-    const hasTimeFilter = quickFilter !== "all" || document.querySelector("#quarter").value !== "all";
-    document.querySelector("#sort").value = hasTimeFilter ? "count" : "recent";
-  };
   document.querySelector("#search").addEventListener("input", update);
   document.querySelector("#category").addEventListener("change", update);
-  document.querySelector("#quarter").addEventListener("change", () => {
-    syncTimeSort();
-    update();
-  });
-  document.querySelector("#sort").addEventListener("change", update);
+  document.querySelector("#quarter").addEventListener("change", update);
   document.querySelectorAll("[data-quick-filter]").forEach((button) =>
     button.addEventListener("click", () => {
       quickFilter = quickFilter === button.dataset.quickFilter ? "all" : button.dataset.quickFilter;
-      syncTimeSort();
       update();
     }),
   );
