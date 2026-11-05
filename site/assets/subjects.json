@@ -34757,62 +34757,6 @@
       "catalog_image_source": "https://lain.bgm.tv/pic/cover/l/67/5a/555605_cLCw5.jpg",
       "pipeline_version": 2
     },
-    "80932": {
-      "upstream": {
-        "name": "齐木楠雄的灾难",
-        "original_name": "斉木楠雄のΨ難",
-        "aliases": [
-          "超能力者齐木楠雄的灾难",
-          "FLASHアニメ「斉木楠雄のΨ難」",
-          "FLASH动画“齐木楠雄的灾难”"
-        ],
-        "type": 2,
-        "platform": "WEB",
-        "air_date": "2013-08-04",
-        "quarter": "201307",
-        "summary": "単行本5巻の帯にて発表。スマートフォン専用アプリケーション「ジャンプLIVE」で2013年8月から配信中。",
-        "image": "https://lain.bgm.tv/pic/cover/l/38/6b/80932_rNDrG.jpg"
-      },
-      "rating": {
-        "score": 7.2,
-        "total": 1094,
-        "rank": 1847
-      },
-      "rating_fetched_at": "2026-11-05T18:00:50.316132+00:00",
-      "image_variants": [
-        {
-          "image": "assets/covers/80932-10ba424a50858257.webp",
-          "width": 320,
-          "height": 214
-        },
-        {
-          "image": "assets/covers/80932-dbe65b8c97283baf.webp",
-          "width": 460,
-          "height": 307
-        }
-      ],
-      "image": "assets/covers/80932-dbe65b8c97283baf.webp",
-      "image_sha256": "24259d5442d75b3308adca2a350b220e87928c727bd8982aa8e0f57003c2ed0e",
-      "metadata": {
-        "name": "齐木楠雄的灾难",
-        "original_name": "斉木楠雄のΨ難",
-        "aliases": [
-          "超能力者齐木楠雄的灾难",
-          "FLASHアニメ「斉木楠雄のΨ難」",
-          "FLASH动画“齐木楠雄的灾难”",
-          "齐木楠雄的灾难",
-          "斉木楠雄のΨ難"
-        ],
-        "type": 2,
-        "platform": "WEB",
-        "air_date": "2013-08-04",
-        "quarter": "201307",
-        "summary": "単行本5巻の帯にて発表。スマートフォン専用アプリケーション「ジャンプLIVE」で2013年8月から配信中。"
-      },
-      "image_source": "https://lain.bgm.tv/pic/cover/l/38/6b/80932_rNDrG.jpg",
-      "catalog_image_source": "https://lain.bgm.tv/pic/cover/l/38/6b/80932_rNDrG.jpg",
-      "pipeline_version": 2
-    },
     "2934": {
       "upstream": {
         "name": "黑塚",
