@@ -1,0 +1,21 @@
+{
+  "name": "funshiki-anime-index",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "泛式动漫杂谈索引 · GitHub Pages 静态站",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "preview": "npm run build && node scripts/serve.mjs --dist --open",
+    "build": "node scripts/build.mjs",
+    "sync:assets": "python scripts/sync_site_assets.py",
+    "sync:seasons": "python scripts/sync_site_seasons.py",
+    "test:seasons": "python -m unittest discover -s tests -p test_site_seasons.py",
+    "test:sync": "python -m unittest discover -s tests -p test_site_assets.py",
+    "test": "node --test tests/archive.test.mjs tests/domain.test.mjs tests/assets.test.mjs tests/analytics.test.mjs tests/public-catalog.test.mjs",
+    "check": "npm test && npm run build"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "repository": "Juvenile-A3/funshiki-anime-index",
+  "title": "诶嘿漫谈部",
+  "analytics": {
+    "provider": "umami",
+    "script_url": "https://cloud.umami.is/script.js",
+    "website_id": "954ace25-8fea-4d3f-96a9-ebe87d20ddf9",
+    "domains": [
+      "funshiki-anime-index.cn",
+      "www.funshiki-anime-index.cn",
+      "juvenile-a3.github.io"
+    ]
+  }
+}
