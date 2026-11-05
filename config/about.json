@@ -1,0 +1,17 @@
+{
+  "intro": "诶嘿漫谈部是一个由粉丝制作的泛式动漫杂谈索引网站，你可以从作品出发寻找所有相关杂谈的切片。",
+  "thanks_title": "致谢",
+  "fan_name": "泛式",
+  "recorders_name": "下播型泛式录播组",
+  "archive_name": "泛式档案",
+  "timelines_name": "轴man们",
+  "metadata_text": "Bangumi的条目维护者们",
+  "architecture_title": "开发计划",
+  "architecture_intro": "给没有轴man的录播打轴\n开播图的收集、整理与展示\n放映回、新番杂谈视频加入索引\n优质二创的收集、分类与展示\n网站其他主题的皮肤：放课后活动室、深夜电台\n写一个更好的“关于项目”\n动画的分类：下播番、全切番、xxxx待遇等\n网站的背景图、看板娘、留言板\n站内的纠错功能",
+  "feedback_title": "纠错与建议",
+  "feedback_text": "如果发现任何时轴、作品、录播相关的信息错漏或链接失效，或者对网站有任何意见与建议，欢迎通过 GitHub Issues 或作者B站反馈。来源署名的补充与修正也欢迎告知。",
+  "rights_text": "粉丝项目，非官方。本站只提供整理与检索，不托管录播视频。视频、作品图片及原始整理内容的权利归各自权利人；如需调整引用或署名，请联系作者。",
+  "github_label": "GitHub 仓库",
+  "author_label": "作者B站",
+  "feedback_label": "反馈与纠错"
+}
