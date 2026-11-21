@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import {
   findSubjects, videoUrl, formatTime, normalize, escapeHtml,
   parseRoute, validateCatalog, findHomeSubjects, indexSubjects, paginate, CATALOG_PAGE_SIZE, discussionSeasons, subjectCategory, recentBroadcastQuarters, timelineContributors,
-  findSegments, totalDuration, episodeProgress, recordingDate, screeningSubjectIds, catalogFilters, recentCardQuarter,
+  findSegments, totalDuration, episodeProgress, recordingDate, screeningSubjectIds, catalogFilters, recentCardDateLabel,
 } from '../site/domain.mjs';
 
 const data = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
@@ -217,9 +217,18 @@ test('recent cards display the broadcast quarter matching the selected date', ()
   const show = {type: 2, platform: 'TV', quarter: '202607', air_date: '2026-07-03',
     airing: {quarters: ['202607', '202610', '202701']}};
   const discussion = {current: '202610', previous: '202607', transitions: []};
-  assert.equal(recentCardQuarter(show, discussion, 'all'), '202610');
-  assert.equal(recentCardQuarter(show, discussion, '2027'), '202701');
-  assert.equal(recentCardQuarter(show, discussion, '202607'), '202607');
+  assert.equal(recentCardDateLabel(show, discussion, 'all'), '2026 年夏季首播 · 2026 年秋季续播');
+  assert.equal(recentCardDateLabel(show, discussion, '2027'), '2026 年夏季首播 · 2027 年冬季续播');
+  assert.equal(recentCardDateLabel(show, discussion, '202607'), '2026 年夏季首播');
+});
+
+test('a split cour keeps its premiere label and skips the intervening season', () => {
+  const show = {type: 2, platform: 'TV', quarter: '202610', air_date: '2026-10-05',
+    airing: {quarters: ['202610', '202704']}};
+  const discussion = {current: '202610', previous: '202607', transitions: []};
+  assert.equal(recentCardDateLabel(show, discussion, '2027'), '2026 年秋季首播 · 2027 年春季续播');
+  assert.deepEqual(catalogFilters([show], {quickFilter: 'recent', year: '2027'}, discussion)
+    .seasonsByYear.get('2027'), ['04']);
 });
 
 test('each calendar season covers exactly three release months', () => {

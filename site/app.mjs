@@ -1,7 +1,7 @@
 import {
   escapeHtml as esc,
   segmentDuration, preferredPlaybackTarget, totalDuration, episodeProgress, findSegments,
-  findSubjects, findHomeSubjects, catalogFilters, subtypeCounts, seasonNames, quarterStartMonth, recentCardQuarter, timelineContributors, discussionSeasons, recordingCoverage,
+  findSubjects, findHomeSubjects, catalogFilters, subtypeCounts, seasonNames, quarterStartMonth, recentCardDateLabel, timelineContributors, discussionSeasons, recordingCoverage,
   parseRoute,
   validateCatalog,
   videoUrl, recordingDate, quarterLabel,
@@ -265,8 +265,7 @@ function home() {
       ? paged.items.map((s, i) => {
         if (quickFilter !== "recent") return card(s, i);
         const dateFilter = legacyQuarter || (selectedSeason === "all" ? year : year + selectedSeason);
-        const displayedQuarter = recentCardQuarter(s, season, dateFilter);
-        return card(s, i, `${displayedQuarter.slice(0, 4)} 年 ${seasonNames[displayedQuarter.slice(4)]}`);
+        return card(s, i, recentCardDateLabel(s, season, dateFilter));
       }).join("")
       : `<div class="empty"><span aria-hidden="true">⌕</span><h3>还没有找到这部作品</h3><p>试试正式名称或别名，也可以去整期时间轴看看。</p><button id="reset-search">清空筛选</button></div>`;
     const matches = findSegments(data, query, new Set(scoped.map(s => s.id)), new Set(results.map(s => s.id)));

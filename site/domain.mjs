@@ -295,10 +295,16 @@ function catalogDates(s, recent, discussion) {
   return [...dates];
 }
 
-export function recentCardQuarter(subject, discussion, dateFilter) {
+export function recentCardDateLabel(subject, discussion, dateFilter) {
   const dates = catalogDates(subject, true, discussion);
   const matches = dates.filter(date => dateFilter === "all" || date.startsWith(dateFilter));
-  return [discussion.current, discussion.previous].find(q => matches.includes(q)) || matches.sort().at(-1);
+  const matched = [discussion.current, discussion.previous].find(q => matches.includes(q)) || matches.sort().at(-1);
+  const premiere = subject.air_date ? dateQuarter(subject.air_date) : animeQuarter(subject);
+  const seasonLabel = q => `${q.slice(0, 4)} 年${seasonNames[q.slice(4)]}`;
+  if (!matched || !seasonNames[matched.slice(4)]) return "";
+  if (!premiere || premiere === "999999") return seasonLabel(matched) + "播出";
+  const first = seasonLabel(premiere) + "首播";
+  return matched === premiere ? first : `${first} · ${seasonLabel(matched)}续播`;
 }
 
 // Resolve parents first so an unavailable child never hides its parent's results.

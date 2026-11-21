@@ -1977,6 +1977,17 @@ button:disabled {
   background: var(--paper);
 }
 .about-intro { border: 0; padding-bottom: 0; }
+.about-release > summary { display: block; cursor: pointer; }
+.about-release > summary::-webkit-details-marker { display: none; }
+.about-release > summary h2 { display: flex; align-items: center; justify-content: space-between; }
+.about-release > summary h2::before {
+  content: ""; order: 1; width: .4em; height: .4em; margin-inline: .5em;
+  border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(-45deg);
+}
+.about-release[open] > summary h2::before { transform: rotate(45deg); }
+.about-release h3 { margin: 1.25rem 0 .5rem; font-size: 1rem; }
+.about-release ul { margin: 0; padding-inline-start: 1.4em; line-height: 1.8; }
+.about-release li + li { margin-top: .5em; }
 .about-intro h1 { font-family: var(--friendly-font); }
 .about-page h2 {
   position: relative;

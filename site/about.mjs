@@ -10,7 +10,7 @@ function decoratedText(key, value, repository) {
     .replace(/GitHub Issues/g, `<a href="https://github.com/${esc(repository)}/issues" target="_blank" rel="noopener noreferrer">$&</a>`)
     .replace(/作者\s*B\s*站/g, `<a href="${authorUrl}" target="_blank" rel="noopener noreferrer">$&</a>`)
     .replace(/偷梗邮箱/g, `$& <a href="mailto:${email}">${email}</a>`);
-  if (key === 'architecture_intro' || key === 'release_notes') return `<ul class="roadmap-list">${String(value).split(/\r?\n/).map(s=>s.trim()).filter(Boolean).map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`;
+  if (key === 'architecture_intro') return `<ul class="roadmap-list">${String(value).split(/\r?\n/).map(s=>s.trim()).filter(Boolean).map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`;
   return safe;
 }
 export function aboutMarkup(copy, repository, contributors) {
@@ -19,7 +19,7 @@ export function aboutMarkup(copy, repository, contributors) {
   const repo = `https://github.com/${repository}`;
   const metadata = decoratedText('metadata_text',copy.metadata_text,repository);
   return `<article class="page-wrap prose about-page" data-repository="${esc(repository)}">
-    <div class="about-intro"><h1>关于项目</h1>${text('intro','p','lead')}
+    <div class="about-intro"><h1>关于本站</h1>${text('intro','p','lead')}
       <div class="about-links">
         ${link(authorUrl,'author_label')}
         ${link(repo,'github_label')}
@@ -27,8 +27,12 @@ export function aboutMarkup(copy, repository, contributors) {
         <span>偷梗邮箱： <a href="mailto:${email}">${email}</a></span>
       </div>
     </div>
-    ${copy.release_notes ? `<section>${text('release_title','h2')}<div data-copy="release_notes">${decoratedText('release_notes',copy.release_notes,repository)}</div></section>` : ''}
     <section class="about-roadmap">${text('architecture_title','h2')}<div data-copy="architecture_intro">${decoratedText('architecture_intro',copy.architecture_intro || '',repository)}</div></section>
+    ${copy.releases?.length ? `<details class="about-release">
+      <summary><h2>更新说明</h2></summary>
+      ${copy.releases.map(release => `<section><h3>${esc(release.title)}</h3>
+        <ul>${release.notes.map(note => `<li><strong>${esc(note.topic)}</strong>　${esc(note.text)}</li>`).join('')}</ul></section>`).join('')}
+    </details>` : ''}
     <section>${text('feedback_title','h2')}<p data-copy="feedback_text">${decoratedText('feedback_text',copy.feedback_text,repository)}</p></section>
     <section class="about-credits">${text('thanks_title','h2')}
       <div class="credits-columns"><div class="credit-primary"><a href="https://space.bilibili.com/63231" target="_blank" rel="noopener noreferrer"><img src="./assets/credits/fanshi.webp" alt="泛式头像" width="64" height="64">${text('fan_name')}</a><a href="https://space.bilibili.com/281341996" target="_blank" rel="noopener noreferrer"><img src="./assets/credits/recorders.webp" alt="下播型泛式录播组头像" width="64" height="64">${text('recorders_name')}</a></div>

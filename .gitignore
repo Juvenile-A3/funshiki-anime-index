@@ -28,6 +28,7 @@
 !/.gitignore
 !/CNAME
 !/README.md
+!/CHANGELOG.md
 !/config/about.json
 !/config/season-policy.json
 !/config/site.json
