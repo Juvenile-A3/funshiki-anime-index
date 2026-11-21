@@ -1,10 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { validateCatalog, findSubjects, quarterLabel, videoUrl, subjectCategory, segmentDuration, segmentPlaybackTargets, segmentTargetLabel } from '../site/domain.mjs';
+import { validateCatalog, findSubjects, quarterLabel, videoUrl, subjectCategory, segmentDuration, segmentPlaybackTargets, preferredPlaybackTarget } from '../site/domain.mjs';
 const data = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
 
 test('published catalog resolves every subject and clip', () => assert.equal(validateCatalog(data), true));
+test('compilations link to the reviewed edition', () => {
+  const saiki = data.subjects.find(s => s.id === 181354);
+  assert.deepEqual(saiki.collection_bvids, ['BV1eNtg6oECC']);
+  assert.ok(data.segments.filter(e => e.bvid === 'BV19t8H6bEx5').every(e => e.subject_ids.includes(saiki.id)));
+  assert.deepEqual(data.subjects.find(s => s.id === 470667).collection_bvids, ['BV1pKTw6aEJf']);
+  assert.ok(!data.subjects.find(s => s.id === 975).collection_bvids?.includes('BV1pKTw6aEJf'));
+  const invalid = structuredClone(data);
+  invalid.subjects[0].collection_bvids = ['https://example.com'];
+  assert.throws(() => validateCatalog(invalid), /无效合集视频/);
+});
 test('quarter filters use source quarter, including unspecified releases', () => {
   const result = findSubjects(data, '', 'all', 'recent', 'all', '202607');
   assert.ok(result.length > 0);
@@ -41,18 +51,20 @@ test('cross-part card sums source durations and jumps only to its beginning', ()
   assert.deepEqual(e.targets.map(t => [t.p, t.seconds, t.end_seconds]), [[1, 4651.4, 4692.8], [2, 1.8, 49.2]]);
   assert.equal(segmentDuration(e), '1 分 29 秒（跨P）');
   assert.equal(segmentPlaybackTargets(e).length, 1);
-  assert.equal(segmentTargetLabel(e, e.targets[0], 0), '跳转切片');
+  assert.deepEqual(preferredPlaybackTarget(e, true), e.targets[0]);
   const bad = structuredClone(data);
   bad.segments.find(s => s.id === e.id).targets[1].p = 1;
   assert.throws(() => validateCatalog(bad), /跨P/);
 });
 
-test('alternate version is a separate jump and never doubles clip duration', () => {
+test('playback preference selects the reviewed variant without changing clip duration', () => {
   const e = data.segments.find(e => e.bvid === 'BV1zKHu61E6c');
   const jumps = segmentPlaybackTargets(e);
   assert.deepEqual(jumps.map(t => t.p), [1, 2]);
   assert.equal(jumps[0].seconds, jumps[1].seconds);
-  assert.equal(segmentTargetLabel(e, jumps[1], 1), '弹幕版');
+  assert.equal(preferredPlaybackTarget(e, true), jumps[1]);
+  assert.equal(preferredPlaybackTarget({...e, playback_targets: [...jumps].reverse()}, false), jumps[0]);
+  assert.equal(preferredPlaybackTarget({...e, playback_targets: [jumps[1]]}, false), jumps[1]);
   assert.equal(segmentDuration(e), segmentDuration({...e, playback_targets: []}));
   const bad = structuredClone(data);
   bad.segments.find(s => s.id === e.id).playback_targets[1].p = 99;

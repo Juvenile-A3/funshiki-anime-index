@@ -14,12 +14,13 @@ const types = {
   ".svg": "image/svg+xml",
   ".webp": "image/webp",
   ".png": "image/png",
+  ".ico": "image/x-icon",
+  ".ttf": "font/ttf",
 };
 const server = createServer(async (req, res) => {
   try {
-    let path = decodeURIComponent(
-      new URL(req.url, "http://localhost").pathname,
-    );
+    const url = new URL(req.url, "http://localhost");
+    const path = decodeURIComponent(url.pathname);
     const source = production
       ? `dist/${path === "/" ? "index.html" : path.slice(1)}`
       : path === "/catalog.json"
@@ -48,14 +49,16 @@ const server = createServer(async (req, res) => {
     res.end("Not found");
   }
 });
-let port = 4173;
+// Keep the published site away from old workbench/mobile origins (4173–4175).
+// Their service workers can serve an old offline shell even after the server changes.
+let port = production ? 4180 : 4173;
 server.on("error", (error) => {
   if (production && error.code === "EADDRINUSE" && port < 4193) {
     server.listen(++port, "127.0.0.1");
     return;
   }
   console.error(error.code === "EADDRINUSE"
-    ? "端口 4173 已被占用，请关闭之前的预览窗口或占用该端口的程序后重试。"
+    ? `预览端口已被占用（${production ? "4180–4193" : "4173"}），请关闭旧的预览窗口后重试。`
     : error.message);
   process.exitCode = 1;
 });

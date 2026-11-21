@@ -53,6 +53,13 @@ export function totalDuration(entries) {
   return {seconds, incomplete, label: `${incomplete ? '至少 ' : ''}${segmentDuration({targets:[{seconds:0,end_seconds:seconds}]})}`};
 }
 
+export function screeningSubjectIds(entries) {
+  const screened = entries.filter(entry =>
+    entry.text !== '简短提及' && totalDuration([entry]).seconds > 180
+  );
+  return [...new Set(screened.flatMap(entry => entry.subject_ids))];
+}
+
 export function episodeProgress(subject, recording) {
   if (subjectCategory(subject) !== 'anime' || !recording?.live_date) return '';
   const previous = new Date(`${recording.live_date}T00:00:00Z`);
@@ -79,8 +86,10 @@ export function segmentTimeRange(entry) {
 export function segmentPlaybackTargets(entry) {
   return entry.playback_targets || [entry.targets[0]];
 }
-export function segmentTargetLabel(entry, target, index) {
-  return index === 0 ? "跳转切片" : target.variant === "danmaku" ? "弹幕版" : "普通版";
+export function preferredPlaybackTarget(entry, preferDanmaku) {
+  const targets = segmentPlaybackTargets(entry);
+  const variant = preferDanmaku ? "danmaku" : "normal";
+  return targets.find(target => target.variant === variant) || targets[0] || entry.targets[0];
 }
 export function segmentDuration(entry) {
   if (entry.targets.some(t => t.end_seconds === undefined)) return `起点 ${formatTime(entry.targets[0].seconds)}`;
@@ -183,13 +192,18 @@ export function animeQuarter(subject) {
   if (!subject.quarter || subject.quarter === "999999") return "999999";
   const match = /^(\d{4})(0[1-9]|1[0-2])$/.exec(subject.quarter || "");
   if (!match) return "";
-  const month = Math.floor((Number(match[2]) - 1) / 3) * 3 + 1;
-  return `${match[1]}${String(month).padStart(2, "0")}`;
+  return match[1] + quarterStartMonth(match[2]);
+}
+
+export const seasonNames = { "01": "冬季", "04": "春季", "07": "夏季", "10": "秋季" };
+export function quarterStartMonth(month) {
+  if (!/^(0?[1-9]|1[0-2])$/.test(month)) return "";
+  return String(Math.floor((Number(month) - 1) / 3) * 3 + 1).padStart(2, "0");
 }
 
 const quarterIndex = (key) => Number(key.slice(0, 4)) * 4 + (Number(key.slice(4)) - 1) / 3;
 const quarterKey = (index) => `${Math.floor(index / 4)}${String(index % 4 * 3 + 1).padStart(2, "0")}`;
-const dateQuarter = (value) => value ? `${value.slice(0, 4)}${String(Math.floor((Number(value.slice(5, 7)) - 1) / 3) * 3 + 1).padStart(2, "0")}` : "";
+const dateQuarter = (value) => value ? value.slice(0, 4) + quarterStartMonth(value.slice(5, 7)) : "";
 export function broadcastQuarters(subject) {
   if (subjectCategory(subject) !== "anime") return [];
   return subject.airing?.quarters || [animeQuarter(subject)].filter(q => q && q !== "999999");
@@ -260,6 +274,52 @@ export function recordingCoverage(data) {
   return { from: dates[0] || "", to: dates.at(-1) || "" };
 }
 
+function subjectSubtypes(s) {
+  if (subjectCategory(s) === "game") return s.game_genres || [];
+  return s.platform && s.platform !== categories[subjectCategory(s)] ? [s.platform] : [];
+}
+
+export function subtypeCounts(subjects) {
+  const counts = new Map();
+  for (const s of subjects) for (const name of new Set(subjectSubtypes(s))) {
+    counts.set(name, (counts.get(name) || 0) + 1);
+  }
+  return [...counts].sort(([a, n], [b, m]) => m - n || a.localeCompare(b, "zh-CN"));
+}
+
+function catalogDates(s, recent, discussion) {
+  const dates = new Set(recent ? recentBroadcastQuarters(s, discussion) : []);
+  if (s.air_date) dates.add(dateQuarter(s.air_date));
+  else if (s.quarter && s.quarter !== "999999") dates.add(s.quarter.slice(0, 4) + quarterStartMonth(s.quarter.slice(4)));
+  if (!dates.size) dates.add("undated");
+  return [...dates];
+}
+
+export function recentCardQuarter(subject, discussion, dateFilter) {
+  const dates = catalogDates(subject, true, discussion);
+  const matches = dates.filter(date => dateFilter === "all" || date.startsWith(dateFilter));
+  return [discussion.current, discussion.previous].find(q => matches.includes(q)) || matches.sort().at(-1);
+}
+
+// Resolve parents first so an unavailable child never hides its parent's results.
+export function catalogFilters(subjects, requested, discussion) {
+  const category = requested.category || "all";
+  const typed = subjects.filter(s => category === "all" || subjectCategory(s) === category);
+  const subtypes = category === "all" ? [] : subtypeCounts(typed);
+  const subtype = subtypes.some(([name]) => name === requested.subtype) ? requested.subtype : "all";
+  const dated = typed.filter(s => subtype === "all" || subjectSubtypes(s).includes(subtype))
+    .map(subject => ({subject, dates: catalogDates(subject, requested.quickFilter === "recent", discussion)}));
+  const keys = new Set(dated.flatMap(row => row.dates));
+  const years = [...new Set([...keys].filter(d => d !== "undated").map(d => d.slice(0, 4)))].sort().reverse();
+  if (keys.has("undated")) years.push("undated");
+  const year = years.includes(requested.year) ? requested.year : "all";
+  const seasonsByYear = new Map(years.map(y => [y, ["01", "04", "07", "10"].filter(start => keys.has(y + start))]));
+  const season = seasonsByYear.get(year)?.includes(requested.season) ? requested.season : "all";
+  const prefix = season === "all" ? year : year + season;
+  return {subtypes, subtype, years, year, seasonsByYear, season, subjects: dated
+    .filter(row => year === "all" || row.dates.some(d => d.startsWith(prefix))).map(row => row.subject)};
+}
+
 export function findHomeSubjects(data, {
   query = "", category = "all", quarter = "all", quickFilter = "recent", now = new Date(),
 } = {}) {
@@ -326,7 +386,7 @@ export function validateCatalog(data) {
   return true;
 }
 
-export const categories = { anime: "动画", book: "书籍", game: "游戏", live: "真人 / 特摄", music: "音乐", unknown: "类型待确认" };
+export const categories = { anime: "动画", book: "书籍", game: "游戏", music: "音乐", live: "三次元", unknown: "类型待确认" };
 const contentKinds = { indexed: true, discussion: true, watch: true, pv: true, general: true, life: true, new_video: true };
 export const isIndexedSegment = (entry) => !["life", "new_video"].includes(entry.kind);
 export function subjectCategory(s) {
@@ -340,6 +400,9 @@ export function subjectCategory(s) {
   return "anime"; // Existing schema v1 animation records omit type.
 }
 export function validateSubject(s) {
+  if (s.collection_bvids !== undefined && (!Array.isArray(s.collection_bvids) ||
+      s.collection_bvids.some(id => typeof id !== "string" || !/^BV[0-9A-Za-z]{10}$/.test(id)) ||
+      new Set(s.collection_bvids).size !== s.collection_bvids.length)) throw new Error("无效合集视频");
   if (!Number.isSafeInteger(s.id) || s.id < 1 || (s.type !== undefined && ![0, 1, 2, 3, 4, 6].includes(s.type)) ||
       typeof s.name !== "string" || !s.name.trim() || typeof s.original_name !== "string" ||
       !Array.isArray(s.aliases) || s.aliases.some(a => typeof a !== "string")) throw new Error("无效作品数据");

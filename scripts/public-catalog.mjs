@@ -8,7 +8,7 @@ const target = value => pick(value, ['p','cid','seconds','end_seconds','variant'
 export function publicCatalog(input) {
   const result = {
     schema_version: input.schema_version,
-    subjects: input.subjects.map(s => pick(s, ['id','name','original_name','aliases','search_aliases','type','platform','air_date','quarter','image','summary'])),
+    subjects: input.subjects.map(s => pick(s, ['id','name','original_name','aliases','search_aliases','type','platform','air_date','quarter','image','summary','collection_bvids'])),
     videos: input.videos.map(v => ({
       ...pick(v, ['bvid','title','kind','live_date','published_date']),
       pages: v.pages.map(p => pick(p, ['p','cid','duration','title','variant','verification'])),

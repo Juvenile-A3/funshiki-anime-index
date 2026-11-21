@@ -9,7 +9,7 @@ export function applyLocalAssets(catalog, manifest) {
       throw new Error(`作品 ${subject.id} 的本地资源缺失或已过期，请运行 npm run sync:assets`);
     }
     if (saved.metadata) {
-      for (const key of ["name", "original_name", "aliases", "type", "platform", "air_date", "quarter", "summary"]) {
+      for (const key of ["name", "original_name", "aliases", "type", "platform", "game_genres", "air_date", "quarter", "summary"]) {
         if (Object.hasOwn(saved.metadata, key)) subject[key] = saved.metadata[key];
       }
     }

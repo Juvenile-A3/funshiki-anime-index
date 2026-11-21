@@ -38,6 +38,36 @@ def download(url):
             time.sleep(attempt + 1)
 
 
+def infobox_values(detail, key):
+    values = []
+    for field in detail.get('infobox', []):
+        if field.get('key') == key:
+            value = field.get('value')
+            for item in value if isinstance(value, list) else [value]:
+                name = item.get('v') if isinstance(item, dict) else item
+                if isinstance(name, str) and name.strip():
+                    values.append(name.strip())
+    return values
+
+
+def game_genres(detail):
+    declared = infobox_values(detail, '游戏类型')
+    tags = [tag for tag in detail.get('meta_tags', []) if isinstance(tag, str)]
+    labels = ' / '.join([*declared, *tags])
+    genres = []
+    if re.search(r'(?<![a-z])(?:vn|adv|avg|galgame)(?![a-z])|visual novel|视觉小说|視覺小說|アドベンチャー', labels, re.I):
+        genres.append('Galgame')
+    if re.search(r'rpg|角色扮演|ロールプレイング', labels, re.I):
+        genres.append('RPG')
+    if re.search(r'(?<![a-z])mug(?![a-z])|音游|音遊|音乐游戏|節奏遊戲|rhythm', labels, re.I):
+        genres.append('音游')
+    if not genres:
+        genres.extend(declared)
+    if any(p.casefold() in {'ios', 'android', 'iphone', 'ipad'} for p in infobox_values(detail, '平台')):
+        genres.append('手游')
+    return list(dict.fromkeys(genres))
+
+
 def normalize_metadata(detail):
     if not isinstance(detail.get('name'), str) or not detail['name'].strip():
         raise ValueError('Missing subject name')
@@ -56,7 +86,8 @@ def normalize_metadata(detail):
     return dict(name=detail.get('name_cn') or detail['name'], original_name=detail['name'],
                 aliases=list(dict.fromkeys(a for a in aliases if isinstance(a, str) and a)),
                 type=detail['type'], platform=detail.get('platform') or '', air_date=date,
-                quarter=quarter, summary=detail.get('summary') or '', image=source)
+                quarter=quarter, summary=detail.get('summary') or '', image=source,
+                **({'game_genres': game_genres(detail)} if detail['type'] == 4 else {}))
 
 
 def local_file(path):

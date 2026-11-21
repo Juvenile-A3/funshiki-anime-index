@@ -4,10 +4,21 @@ import { readFile } from 'node:fs/promises';
 import {
   findSubjects, videoUrl, formatTime, normalize, escapeHtml,
   parseRoute, validateCatalog, findHomeSubjects, indexSubjects, paginate, CATALOG_PAGE_SIZE, discussionSeasons, subjectCategory, recentBroadcastQuarters, timelineContributors,
-  findSegments, totalDuration, episodeProgress, recordingDate,
+  findSegments, totalDuration, episodeProgress, recordingDate, screeningSubjectIds, catalogFilters, recentCardQuarter,
 } from '../site/domain.mjs';
 
 const data = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
+
+test('screening headings require one substantial clip and exclude brief mentions', () => {
+  const clip = (id, seconds, text = '放映会') => ({
+    text, subject_ids: [id], targets: [{p: 1, seconds: 0, end_seconds: seconds}],
+  });
+  assert.deepEqual(screeningSubjectIds([
+    clip(1, 180), clip(1, 100), clip(2, 600, '简短提及'), clip(3, undefined),
+    clip(4, 181), clip(4, 1000), clip(5, 900),
+  ]), [4, 5]);
+  assert.deepEqual(screeningSubjectIds(data.segments.filter(e => e.bvid === 'BV1vyWP6wEpx')), [167434]);
+});
 
 test('segment search includes database slang and direct text, deduplicates shared works and excludes life topics',()=>{
   const c=homeData([[1,'202607',0],[2,'202607',0]]);
@@ -172,6 +183,53 @@ test('season changes only at a majority regular talk, never at a tea party or pr
 test('book filter combines manga and novels', () => {
   assert.equal(subjectCategory({type:1,platform:'漫画'}),'book');
   assert.equal(subjectCategory({type:1,platform:'小说'}),'book');
+});
+
+test('optional child filters count distinct works, order populated subtypes and group releases by season', () => {
+  const subjects = [
+    {id: 1, type: 4, game_genres: ['Galgame', '音游', 'Galgame'], air_date: '2025-08-03'},
+    {id: 2, type: 4, game_genres: ['Galgame'], air_date: '2025-09-01'},
+    {id: 3, type: 4, quarter: '999999'},
+    {id: 4, type: 4, quarter: '202507'},
+    {id: 5, type: 1, platform: '漫画', air_date: '2023-01-01'},
+  ];
+  const filter = choices => catalogFilters(subjects, {category: 'game', ...choices});
+  assert.deepEqual(filter({}).subtypes, [['Galgame', 2], ['音游', 1]]);
+  assert.deepEqual(filter({}).years, ['2025', 'undated']);
+  assert.equal(filter({}).subjects.length, 4);
+  assert.deepEqual(filter({year: '2025'}).subjects.map(s => s.id), [1, 2, 4]);
+  assert.deepEqual(filter({year: '2025'}).seasonsByYear.get('2025'), ['07']);
+  assert.deepEqual(filter({subtype: 'Galgame', year: '2025', season: '07'}).subjects.map(s => s.id), [1, 2]);
+  assert.deepEqual(filter({year: 'undated', season: '07'}).subjects.map(s => s.id), [3]);
+  assert.equal(filter({category: 'book', subtype: 'Galgame'}).subtype, 'all');
+});
+
+test('recent seasons follow eligible broadcasts across years and skip broadcast gaps', () => {
+  const show = {type: 2, platform: 'TV', quarter: '202510', air_date: '2025-11-03',
+    airing: {quarters: ['202510', '202601'], episode_dates: ['2025-12-29', '2026-02-12']}};
+  const filter = (quickFilter, year) => catalogFilters([show], {quickFilter, year}, {transitions: []});
+  assert.deepEqual(filter('all', '2025').seasonsByYear.get('2025'), ['10']);
+  assert.deepEqual(filter('recent', '2025').seasonsByYear.get('2025'), ['10']);
+  assert.deepEqual(filter('recent', '2026').seasonsByYear.get('2026'), ['01']);
+});
+
+test('recent cards display the broadcast quarter matching the selected date', () => {
+  const show = {type: 2, platform: 'TV', quarter: '202607', air_date: '2026-07-03',
+    airing: {quarters: ['202607', '202610', '202701']}};
+  const discussion = {current: '202610', previous: '202607', transitions: []};
+  assert.equal(recentCardQuarter(show, discussion, 'all'), '202610');
+  assert.equal(recentCardQuarter(show, discussion, '2027'), '202701');
+  assert.equal(recentCardQuarter(show, discussion, '202607'), '202607');
+});
+
+test('each calendar season covers exactly three release months', () => {
+  const subjects = Array.from({length: 12}, (_, i) => ({
+    id: i + 1, air_date: `2026-${String(i + 1).padStart(2, '0')}-01`,
+  }));
+  for (const [season, ids] of [['01', [1, 2, 3]], ['04', [4, 5, 6]], ['07', [7, 8, 9]], ['10', [10, 11, 12]]]) {
+    const filtered = catalogFilters(subjects, {year: '2026', season});
+    assert.deepEqual(filtered.subjects.map(s => s.id), ids);
+  }
 });
 
 test('late finales stay in the previous season until the discussion-season boundary', () => {

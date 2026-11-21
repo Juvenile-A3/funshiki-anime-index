@@ -61,6 +61,19 @@ class AssetSyncTests(unittest.TestCase):
         self.assertNotEqual(updated['image'], previous['image'])
         self.assertIn('cover_content', sync.changes_for(self.subject, previous, updated))
 
+    def test_game_genres_merge_aliases_and_add_mobile_independently(self):
+        for raw, expected in [('VN', 'Galgame'), ('恋愛ADV', 'Galgame'), ('AVG', 'Galgame'),
+                              ('MMORPG', 'RPG'), ('角色扮演', 'RPG'), ('战术SRPG', 'RPG'),
+                              ('MUG', '音游'), ('FPS', 'FPS')]:
+            with self.subTest(raw=raw):
+                self.detail.update(type=4, infobox=[{'key': '游戏类型', 'value': raw},
+                    {'key': '平台', 'value': [{'v':'Android'}, {'v':'iOS'}]}])
+                self.assertEqual(sync.normalize_metadata(self.detail)['game_genres'], [expected, '手游'])
+
+    def test_game_genres_use_bangumi_genre_tags_and_ignore_device_tags(self):
+        self.detail.update(type=4, meta_tags=['Galgame', 'MUG', 'ADV', 'PC', 'Windows', '游戏'])
+        self.assertEqual(sync.normalize_metadata(self.detail)['game_genres'], ['Galgame', '音游'])
+
     def test_unchanged_refresh_keeps_image_names_and_no_false_changes(self):
         previous = self.initial()
         with patch.object(sync, 'download', side_effect=self.fetch), patch.object(sync, 'write_variants') as write:

@@ -1,0 +1,117 @@
+/* The exchange table pairs the club doorplate with small media counters. */
+html[data-design="lounge"] {
+  --bg: #fffaf4;
+  --paper: #fffcf8;
+  --ink: #322c32;
+  --muted: #6b6269;
+  --line: #eee3db;
+  --accent: #bd3147;
+  --denim: var(--accent);
+  --mist: #efe7fa;
+  --pale: #ffe3e1;
+  --marker: #ffd65e;
+  --paper-radius: 10px;
+}
+html[data-design="lounge"] .header { background: var(--bg); }
+html[data-design="lounge"] .header nav a[aria-current="page"] { background: var(--pale); color: #95253a; }
+html[data-design="lounge"] .club-lounge {
+  position: relative;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr);
+  gap: clamp(24px, 5vw, 84px);
+  margin-block: 0 28px;
+  padding: clamp(30px, 4vw, 54px) 0 30px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+html[data-design="lounge"] .lounge-search h1 {
+  margin-bottom: 18px;
+  font-size: clamp(30px, 3.25vw, 47px);
+  line-height: 1.35;
+}
+html[data-design="lounge"] .lounge-search .search {
+  background: var(--paper);
+  border-color: #d6b6bd;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #f7d7d4;
+}
+html[data-design="lounge"] .lounge-search h1 span:first-child,
+html[data-design="lounge"] .video-title-copy .host-name {
+  background: linear-gradient(transparent 76%, var(--marker) 76% 93%, transparent 93%);
+}
+/* Keep the original shelf layout and tint the cards to match the exchange table. */
+html[data-design="lounge"] .shelf-work { background: #ffdad0; color: #823f42; }
+html[data-design="lounge"] .shelf-recording { background: #e9ddf7; color: #664779; }
+html[data-design="lounge"] .shelf-clip { background: #ffedac; color: #79501c; }
+html[data-design="lounge"] .media-icon {
+  color: inherit;
+  transform: translate(-50%, -50%);
+}
+html[data-design="lounge"] .disc-icon {
+  background: radial-gradient(circle, var(--paper) 0 13%, currentColor 14% 19%, transparent 20%),
+    conic-gradient(from 25deg, #f4a99c 0 13%, #fff5e9 13% 24%, #f4a99c 24% 63%, #fff5e9 63% 74%, #f4a99c 74%);
+}
+html[data-design="lounge"] .tape-icon { background: #ba98d0; }
+html[data-design="lounge"] .tape-icon::before {
+  background: radial-gradient(circle at 23% 50%, currentColor 0 2px, transparent 2.5px),
+    radial-gradient(circle at 77% 50%, currentColor 0 2px, transparent 2.5px), var(--paper);
+}
+html[data-design="lounge"] .tape-icon::after { background: #f5e9fa; }
+html[data-design="lounge"] .film-icon::before {
+  background: linear-gradient(90deg, #fbd16a 46%, currentColor 46% 53%, #fbd16a 53%);
+}
+html[data-design="lounge"] .catalog-section .section-head { margin-bottom: 14px; padding-bottom: 0; }
+html[data-design="lounge"] .quick-filters { gap: 3px; }
+html[data-design="lounge"] .quick-filters button {
+  background: transparent;
+  border-color: transparent;
+  font-weight: 600;
+}
+html[data-design="lounge"] .quick-filters .active {
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+html[data-design="lounge"] .anime-card {
+  padding: 6px 6px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #4f36200b;
+}
+html[data-design="lounge"] .anime-card .cover { border-radius: 2px; }
+html[data-design="lounge"] .card-top,
+html[data-design="lounge"] .card-bottom { padding-inline: 7px; }
+@container (max-width: 140px) {
+  html[data-design="lounge"] .card-bottom { padding-inline: 3px; gap: 2px; }
+  .card-date { font-size: 9px; }
+}
+html[data-design="lounge"] .anime-card h3 { margin-inline: 7px; }
+html[data-design="lounge"] .video-page-title {
+  padding-inline: 0;
+  padding-top: 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+html[data-design="lounge"] .recording-date,
+html[data-design="lounge"] .video-posted-date {
+  padding: 0;
+  background: transparent;
+  color: #726862;
+  font-weight: 500;
+}
+html[data-design="lounge"] .play.primary:hover { background: #9d233c; border-color: #9d233c; }
+html[data-design="lounge"] .about-page h2::after { background: var(--marker); }
+html[data-design="lounge"] .about-intro {
+  padding-bottom: 22px;
+  border-bottom: 1px dashed var(--line);
+}
+@media (max-width: 760px) {
+  html[data-design="lounge"] .club-lounge {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 17px;
+    padding: 22px 0 16px;
+  }
+  html[data-design="lounge"] .lounge-search h1 { font-size: clamp(24px, 5.8vw, 34px); margin-bottom: 12px; }
+}
