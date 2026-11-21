@@ -111,7 +111,7 @@ small {
 }
 .header-inner {
   max-width: 1184px;
-  min-height: 96px;
+  min-height: 64px;
   margin-inline: auto;
   display: flex;
   gap: 24px;
@@ -122,9 +122,8 @@ small {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   padding: 3px 19px;
-  margin-block: 12px;
+  margin-block: 6px;
   background: #fffdfa;
   border: 1px solid #c6beb8;
   border-bottom: 2px solid #aaa09b;
@@ -142,14 +141,12 @@ small {
 }
 .brand::before { left: 6px; }
 .brand::after { right: 6px; }
-.brand img { display: block; object-fit: contain; }
-.brand-logo { width: 69px; height: auto; }
 .brand-wordmark {
   display: inline-flex;
   align-items: center;
   gap: .22em;
   color: var(--ink);
-  font: 800 35px/1.25 var(--header-font);
+  font: 800 30px/1.25 var(--header-font);
   letter-spacing: .055em;
   white-space: nowrap;
 }
@@ -197,12 +194,13 @@ small {
   .header-inner { margin-inline: 40px; }
 }
 @media (max-width: 700px) {
-  .header-inner { margin-inline: 20px; flex-direction: column; gap: 0; }
-  .brand { margin-block: 10px; padding-block: 2px; }
-  .brand-logo { width: 49px; }
-  .brand-wordmark { font-size: 29px; }
-  .header nav { align-self: stretch; margin-bottom: 8px; }
-  .header nav a { min-height: 44px; padding: 6px 12px; flex: 1; font-size: 15px; }
+  .header-inner { min-height: 54px; margin-inline: 12px; flex-wrap: wrap; gap: 0 4px; }
+  .brand { margin-block: 4px; padding: 3px 12px; }
+  .brand::before { left: 3px; }
+  .brand::after { right: 3px; }
+  .brand-wordmark { font-size: clamp(19px, 5vw, 26px); }
+  .header nav { gap: 2px; }
+  .header nav a { min-height: 44px; padding: 5px clamp(4px, 1.2vw, 9px); font-size: clamp(13px, 3.4vw, 15px); }
 }
 main {
   min-height: calc(100vh - 200px);

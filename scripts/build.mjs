@@ -39,6 +39,7 @@ await mkdir(join(dist, "assets/credits"), { recursive: true });
 await mkdir(join(dist, "assets/fonts"), { recursive: true });
 for (const name of ["club-header-600.ttf", "club-header-800.ttf", "NotoSerifSC-OFL.txt"])
   await copyFile(join(root, "site/assets/fonts", name), join(dist, "assets/fonts", name));
+await copyFile(join(root, "site/assets/favicon-eihei.ico"), join(dist, "assets/favicon-eihei.ico"));
 for (const name of ["fanshi.webp", "recorders.webp"]) await copyFile(join(root,"site/assets/credits",name),join(dist,"assets/credits",name));
 await copyFile(join(root, "site/assets/subjects.json"), join(dist, "assets/subjects.json"));
 for (const path of covers) await copyFile(join(root, "site", path), join(dist, path));
